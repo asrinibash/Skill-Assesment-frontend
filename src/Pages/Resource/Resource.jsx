@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function Resource() {
   return (
-    <div className='w-full h-full'>Resource</div>
-  )
+    <section className="min-h-screen flex items-center justify-center">
+      <h1 className="text-4xl">Resource not given</h1>
+    </section>
+  );
 }
 
-export default Resource
+export default Resource;
