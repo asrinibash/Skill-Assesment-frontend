@@ -1,4 +1,13 @@
 import React from "react";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaTwitter,
+  FaLocationArrow,
+  FaMobileAlt,
+  FaAngleRight,
+} from "react-icons/fa";
 
 function Footer() {
   const footerLinks = [
@@ -9,9 +18,10 @@ function Footer() {
   ];
 
   const socialIcons = [
-    { name: "Instagram", icon: "📷" },
-    { name: "Facebook", icon: "📘" },
-    { name: "LinkedIn", icon: "💼" },
+    { name: "Facebook", icon: <FaFacebook /> },
+    { name: "Instagram", icon: <FaInstagram /> },
+    { name: "LinkedIn", icon: <FaLinkedin /> },
+    { name: "Twitter", icon: <FaTwitter /> },
   ];
 
   return (
@@ -28,21 +38,34 @@ function Footer() {
 
         <div className="grid md:grid-cols-3 gap-8">
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-[#ffc300]">Skill Assessment Platform</h3>
+            <h3 className="text-2xl font-bold text-[#ffc300]">
+              Skill Assessment Platform
+            </h3>
             <p className="text-sm">
-              Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, voluptate.
+              Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Possimus, voluptate.
             </p>
             <div className="space-y-2">
               <p className="flex items-center gap-2">
-                <span>📍</span> Bhubaneswar, Odisha
+                <span>
+                  <FaLocationArrow />
+                </span>{" "}
+                Bhubaneswar, Odisha
               </p>
               <p className="flex items-center gap-2">
-                <span>📱</span> +91 123456789
+                <span>
+                  <FaMobileAlt />
+                </span>{" "}
+                +91 123456789
               </p>
             </div>
             <div className="flex gap-4">
               {socialIcons.map((social, index) => (
-                <a key={index} href="#" className="text-2xl hover:text-[#ffc300] transition-colors duration-300">
+                <a
+                  key={index}
+                  href="#"
+                  className="text-2xl hover:text-[#ffc300] transition-colors duration-300"
+                >
                   {social.icon}
                 </a>
               ))}
@@ -50,26 +73,36 @@ function Footer() {
           </div>
 
           <div className="grid grid-cols-3 gap-2  md:col-span-2">
-            {["Important Links", "Links", "Location"].map((sectionTitle, index) => (
-              <div key={index}>
-                <h3 className="text-xl font-bold mb-4 text-[#ffc300]">{sectionTitle}</h3>
-                <ul className="space-y-2">
-                  {footerLinks.map((link, idx) => (
-                    <li key={idx}>
-                      <a href={link.link} className="hover:text-[#ffc300] hover:translate-x-1 duration-300 flex items-center gap-2">
-                        <span>&#11162;</span>
-                        <span>{link.title}</span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {["Important Links", "Links", "Location"].map(
+              (sectionTitle, index) => (
+                <div key={index}>
+                  <h3 className="text-xl font-bold mb-4 text-[#ffc300]">
+                    {sectionTitle}
+                  </h3>
+                  <ul className="space-y-2">
+                    {footerLinks.map((link, idx) => (
+                      <li key={idx}>
+                        <a
+                          href={link.link}
+                          className="hover:text-[#ffc300] hover:translate-x-1 duration-300 flex items-center gap-2"
+                        >
+                          <FaAngleRight />
+                          <span>{link.title}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )
+            )}
           </div>
         </div>
       </div>
       <div className="bg-[#00142a] py-4 text-center text-sm">
-        <p>&copy; {new Date().getFullYear()} Centurion University. All rights reserved.</p>
+        <p>
+          &copy; {new Date().getFullYear()} Centurion University. All rights
+          reserved.
+        </p>
       </div>
     </footer>
   );
