@@ -1,28 +1,28 @@
-import "./App.css";
-
+import React from "react";
+import {
+  createBrowserRouter,
+  Route,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
 import Layout from "./layout";
 import Home from "./Pages/Home/Home";
-import About from "./Pages/About/About";
-import Stackeholder from "./Pages/Stakeholder/Stackeholder";
+import Adminstrative from "./Pages/Adminstrative/Adminstrative";
+import Stakeholder from "./Pages/Stakeholder/Stackeholder";
+import AssesmentAgencies from "./Pages/TraningAndAssignment/AssesmentAgencies";
 import News from "./Pages/News/News";
 import Resource from "./Pages/Resource/Resource";
 import ContactUs from "./Pages/ContactUs/ContactUs";
-import SkillPortal from "./Pages/TraningAndAssignment/SkillPortal";
-import {
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from "react-router-dom";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
         <Route path="" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="stakeholder" element={<Stackeholder />} />
-        <Route path="skillportal" element={<SkillPortal />} />
+        <Route path="adminstrative" element={<Adminstrative />} />
+        <Route path="stakeholder" element={<Stakeholder />} />
+        <Route path="skillportal/traningpartner" element={<AssesmentAgencies />} />
+        <Route path="skillportal/assesmentagencies" element={<AssesmentAgencies />} />
         <Route path="news" element={<News />} />
         <Route path="resource" element={<Resource />} />
         <Route path="contact" element={<ContactUs />} />
@@ -30,11 +30,7 @@ function App() {
     )
   );
 
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
