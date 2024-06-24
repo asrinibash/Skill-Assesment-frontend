@@ -9,14 +9,22 @@ function Navbar() {
     { name: "Stakeholders", link: "/stakeholder" },
     {
       name: "Training & Assessment",
-      link: "/skillportal",
+      link: "",
       submenu: [
-        "Training Partner Login",
-        "Assessment Partner Login",
-        "Certifications",
+        {
+          name: "Training Partner Login",
+          link: "/skillportal/traningpartner",
+          external: false,
+        },
+        {
+          name: "Assessment Partner Login",
+          link: "/skillportal/assesmentagencies",
+          external: false,
+        },
+        { name: "Certifications", link: "/certifications" },
       ],
     },
-    { name: "Administrative", link: "/contact" },
+    { name: "Administrative", link: "/adminstrative" },
     { name: "Resources", link: "/resource" },
     { name: "Notifications", link: "/news" },
   ];
@@ -26,6 +34,11 @@ function Navbar() {
 
   const handleSubmenuClick = (submenuItem) => {
     setActiveSubmenu(submenuItem);
+    setOpen(false); // Close the navbar
+  };
+
+  const handleContactClick = () => {
+    setOpen(false); // Close the navbar
   };
 
   return (
@@ -80,7 +93,7 @@ function Navbar() {
                   >
                     <path
                       fillRule="evenodd"
-                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 011.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                       clipRule="evenodd"
                     />
                   </svg>
@@ -124,16 +137,27 @@ function Navbar() {
                         <li
                           key={index}
                           className={`md:px-4 md:py-2 ${
-                            activeSubmenu === subItem ? "bg-gray-200" : ""
+                            activeSubmenu === subItem.name ? "bg-gray-200" : ""
                           }`}
-                          onClick={() => handleSubmenuClick(subItem)}
+                          onClick={() => handleSubmenuClick(subItem.name)}
                         >
-                          <a
-                            href="#"
-                            className="text-black hover:text-[#0066ff] block"
-                          >
-                            {subItem}
-                          </a>
+                          {subItem.external ? (
+                            <a
+                              href={subItem.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-black hover:text-[#0066ff] block"
+                            >
+                              {subItem.name}
+                            </a>
+                          ) : (
+                            <Link
+                              to={subItem.link}
+                              className="text-black hover:text-[#0066ff] block"
+                            >
+                              {subItem.name}
+                            </Link>
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -141,14 +165,14 @@ function Navbar() {
                 </li>
               ))}
               <li className="md:hidden mt-4">
-                <Link to="/contact">
+                <Link to="/contact" onClick={handleContactClick}>
                   <button className="btn bg-[#0066ff] text-base text-white font-semibold px-3 py-1 rounded duration-500 hover:bg-[#3f37c9] w-full">
                     Contact Us
                   </button>
                 </Link>
               </li>
             </ul>
-            <Link to="/contact" className="hidden md:block">
+            <Link to="/contact" className="hidden md:block" onClick={handleContactClick}>
               <button className="btn bg-[#0066ff] text-base text-white font-semibold px-3 py-1 rounded duration-500 hover:bg-[#3f37c9]">
                 Contact Us
               </button>
