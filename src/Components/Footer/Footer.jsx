@@ -2,79 +2,64 @@ import React from "react";
 
 function Footer() {
   const footerLinks = [
-    {
-      title: "Home",
-      link: "/#",
-    },
-    {
-      title: "About",
-      link: "/#about",
-    },
-    {
-      title: "Contact",
-      link: "/#contact",
-    },
-    {
-      title: "Blog",
-      link: "/#blog",
-    },
+    { title: "Home", link: "/#" },
+    { title: "About", link: "/#about" },
+    { title: "Contact", link: "/#contact" },
+    { title: "Blog", link: "/#blog" },
+  ];
+
+  const socialIcons = [
+    { name: "Instagram", icon: "📷" },
+    { name: "Facebook", icon: "📘" },
+    { name: "LinkedIn", icon: "💼" },
   ];
 
   return (
-    <div className="bg-[#001d3d] mt-14 border-t-4 border-[#001d3d]">
-      <div className="space-y-2 text-center mt-3 -mb-14">
-        <h1 className="text-xl font-bold md:text-xl lg:text-3xl text-white">
-          Centurion University of Technology and Management
-        </h1>
-        <p className="text-lg lg:text-xl font-semibold text-gray-400">
-          Awarding Body recognized by NCVET
-        </p>
-      </div>
-      <section className="container mt-20 bg-[#231942]">
-        <div className="grid md:grid-cols-3 py-5">
-          {/* Company Details */}
-          <div className="py-8 px-4">
-            <h1 className="sm:text-3xl text-xl text-[#ffc300] font-bold sm:text-left text-justify mb-3 flex items-center gap-3 font-serif">
-              Skill Assessment Platform
-            </h1>
-            <p className="text-sm text-white">
-              Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Possimus, voluptate.
+    <footer className="bg-gradient-to-b from-[#001d3d] to-[#000814] text-white">
+      <div className="container mx-auto px-4 py-12">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
+            Centurion University of Technology and Management
+          </h2>
+          <p className="text-lg text-gray-300">
+            Awarding Body recognized by NCVET
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-[#ffc300]">Skill Assessment Platform</h3>
+            <p className="text-sm">
+              Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, voluptate.
             </p>
-            <br />
-            <div className="flex items-center gap-3 text-white">
-              {/* <FaLocationArrow /> */}
-              <p>Bhubaneswar, Odisha</p>
+            <div className="space-y-2">
+              <p className="flex items-center gap-2">
+                <span>📍</span> Bhubaneswar, Odisha
+              </p>
+              <p className="flex items-center gap-2">
+                <span>📱</span> +91 123456789
+              </p>
             </div>
-            <div className="flex items-center gap-3 mt- text-white">
-              {/* <FaMobileAlt /> */}
-              <p>+91 123456789</p>
-            </div>
-            {/* Social Handle */}
-            <div className="flex items-center gap-3 mt-6 text-white">
-              <a href="#">
-                {/* <FaInstagram className="text-3xl hover:text-[#FFD575] duration-300" /> */}
-              </a>
-              <a href="#">
-                {/* <FaFacebook className="text-3xl hover:text-[#FFD575] duration-300" /> */}
-              </a>
-              <a href="#">
-                {/* <FaLinkedin className="text-3xl hover:text-[#FFD575] duration-300" /> */}
-              </a>
+            <div className="flex gap-4">
+              {socialIcons.map((social, index) => (
+                <a key={index} href="#" className="text-2xl hover:text-[#ffc300] transition-colors duration-300">
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </div>
-          {/* Links */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 col-span-2 md:pl-10">
+
+          <div className="grid grid-cols-3 gap-2  md:col-span-2">
             {["Important Links", "Links", "Location"].map((sectionTitle, index) => (
-              <div key={index} className="py-8 px-4">
-                <h1 className="sm:text-xl text-xl font-bold sm:text-left text-justify mb-3 text-[#ffc300]">
-                  {sectionTitle}
-                </h1>
-                <ul className="flex flex-col gap-3">
+              <div key={index}>
+                <h3 className="text-xl font-bold mb-4 text-[#ffc300]">{sectionTitle}</h3>
+                <ul className="space-y-2">
                   {footerLinks.map((link, idx) => (
-                    <li key={idx} className="cursor-pointer hover:translate-x-1 duration-300 hover:text-[#FFD575] space-x-1 text-white">
-                      <span>&#11162;</span>
-                      <span>{link.title}</span>
+                    <li key={idx}>
+                      <a href={link.link} className="hover:text-[#ffc300] hover:translate-x-1 duration-300 flex items-center gap-2">
+                        <span>&#11162;</span>
+                        <span>{link.title}</span>
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -82,8 +67,11 @@ function Footer() {
             ))}
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+      <div className="bg-[#00142a] py-4 text-center text-sm">
+        <p>&copy; {new Date().getFullYear()} Centurion University. All rights reserved.</p>
+      </div>
+    </footer>
   );
 }
 
