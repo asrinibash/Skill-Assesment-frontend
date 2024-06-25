@@ -5,7 +5,7 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import Layout from "./layout";
+import Layout from "./layout.jsx";
 import Home from "./Pages/Home/Home.jsx";
 import Adminstrative from "./Pages/Adminstrative/Adminstrative.jsx";
 import Stakeholder from "./Pages/Stakeholder/Stackeholder.jsx";
