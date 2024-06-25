@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { images } from "../../Constants/index.js";
+import { images } from "../../Constants";
 import AboutUsSection from "../../Components/HomeComponents/AboutUsSection.jsx";
 import FeaturesSection from "../../Components/HomeComponents/FeaturesSection.jsx";
 import KeyStakeholders from "../../Components/HomeComponents/KeyStakeholders.jsx";

@@ -13,6 +13,7 @@ import AssesmentAgencies from "./Pages/TraningAndAssignment/AssesmentAgencies.js
 import News from "./Pages/News/News.jsx";
 import Resource from "./Pages/Resource/Resource.jsx";
 import ContactUs from "./Pages/ContactUs/ContactUs.jsx";
+import TraningPartner from "./Pages/TraningAndAssignment/TraningPartner.jsx";
 
 function App() {
   const router = createBrowserRouter(
@@ -23,7 +24,7 @@ function App() {
         <Route path="stakeholder" element={<Stakeholder />} />
         <Route
           path="skillportal/traningpartner"
-          element={<AssesmentAgencies />}
+          element={<TraningPartner />}
         />
         <Route
           path="skillportal/assesmentagencies"

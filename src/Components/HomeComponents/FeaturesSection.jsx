@@ -1,5 +1,5 @@
 import React from "react";
-import images from "../../Constants/index.js";
+import images from "../../Constants/images";
 
 function FeaturesSection() {
   return (
