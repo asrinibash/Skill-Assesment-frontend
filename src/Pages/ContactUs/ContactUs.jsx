@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { images } from "../../Constants/images.js";
-import LocationAndContact from "../../Components/HomeComponents/LocationAndContact";
+import LocationAndContact from "../../Components/HomeComponents/LocationAndContact.jsx";
 
 export default function ContactUs() {
   return (
