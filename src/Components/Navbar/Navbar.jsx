@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { images } from "../../Constants";
+import { images } from "../../Constants/images.js";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 

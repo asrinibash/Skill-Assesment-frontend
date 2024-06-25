@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { images } from "../../Constants/images";
-import AboutUsSection from "../../Components/HomeComponents/AboutUsSection";
-import FeaturesSection from "../../Components/HomeComponents/FeaturesSection";
-import KeyStakeholders from "../../Components/HomeComponents/KeyStakeholders";
-import LocationAndContact from "../../Components/HomeComponents/LocationAndContact";
-import NewsAndSchemes from "../../Components/HomeComponents/NewsAndSchemes";
+import { images } from "../../Constants/images.js";
+import AboutUsSection from "../../Components/HomeComponents/AboutUsSection.jsx";
+import FeaturesSection from "../../Components/HomeComponents/FeaturesSection.jsx";
+import KeyStakeholders from "../../Components/HomeComponents/KeyStakeholders.jsx";
+import LocationAndContact from "../../Components/HomeComponents/LocationAndContact.jsx";
+import NewsAndSchemes from "../../Components/HomeComponents/NewsAndSchemes.jsx";
 
 function Home() {
   const slides = [
