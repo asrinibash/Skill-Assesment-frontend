@@ -98,10 +98,16 @@ function Footer() {
           </div>
         </div>
       </div>
+
       <div className="bg-[#00142a] py-4 text-center text-sm">
         <p>
-          &copy; {new Date().getFullYear()} Centurion University. All rights
-          reserved.
+          &copy; {new Date().getFullYear()} Assessment Management System (AMSAY)
+        </p>
+        <p>
+          <span>Centurion University</span>
+          <span className="ml-4 mr-4"> | </span> Disclaimer
+          <span className="ml-4 mr-4"> | </span> Terms of Use
+          <span className="ml-4 mr-4"> | </span> Privacy Policy
         </p>
       </div>
     </footer>

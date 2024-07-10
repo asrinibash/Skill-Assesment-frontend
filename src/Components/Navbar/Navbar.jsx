@@ -6,27 +6,30 @@ import "./Navbar.css";
 function Navbar() {
   const links = [
     { name: "Home", link: "/" },
-    { name: "Stakeholders", link: "/stakeholder" },
+    { name: "Partners", link: "/partner" },
     {
-      name: "Training & Assessment",
+      name: "Our Teams",
       link: "",
-      submenu: [
-        {
-          name: "Training Partner Login",
-          link: "/skillportal/traningpartner",
-          external: false,
-        },
-        {
-          name: "Assessment Partner Login",
-          link: "/skillportal/assesmentagencies",
-          external: false,
-        },
-        { name: "Certifications", link: "/certifications" },
-      ],
     },
-    { name: "Administrative", link: "/adminstrative" },
     { name: "Resources", link: "/resource" },
-    { name: "Notifications", link: "/news" },
+    {
+      name: "Notifications",
+      link: "/news",
+      // submenu: [
+      //   {
+      //     name: "Training Partner Login",
+      //     link: "/skillportal/traningpartner",
+      //     external: false,
+      //   },
+      //   {
+      //     name: "Assessment Partner Login",
+      //     link: "/skillportal/assesmentagencies",
+      //     external: false,
+      //   },
+      //   { name: "Certifications", link: "/certifications" },
+      // ],
+    },
+    { name: "Contact Us", link: "/contact " },
   ];
 
   const [open, setOpen] = useState(false);
@@ -43,40 +46,52 @@ function Navbar() {
 
   return (
     <>
-      <header className="flex items-center justify-between px-4 py-3 md:px-6 md:py-4 lg:px-8 lg:py-5 border-white border-t-4">
-        <a className="flex items-center" href="#">
-          <img
-            src={images.logo}
-            alt="logo"
-            className="w-[154px] h-[154px] object-contain md:w-32"
-          />
-        </a>
-        <div className="space-y-2 lg:ml-1 ml-3">
-          <h1 className="text-sm font-semibold md:text-xl lg:text-3xl">
-            Centurion University of Technology and Management
+      <header className="flex flex-col items-center justify-between px-4 py-3 space-y-4 md:flex-row md:space-y-0 md:px-6 md:py-4 lg:px-8">
+        <div className="flex items-center">
+          <a href="#">
+            <img
+              src={images.logo}
+              alt="logo"
+              className="w-24 h-24 object-contain md:w-32 md:h-32"
+            />
+          </a>
+        </div>
+
+        <div className="text-center md:text-left md:flex-1 md:mx-4">
+          <h1 className="text-lg font-semibold text-gray-900 md:text-xl lg:text-3xl">
+            Assessment Management System (AMSAY)
           </h1>
-          <p className="text-xs lg:text-xl font-medium text-gray-500 dark:text-gray-400">
+          <h2 className="text-sm font-semibold text-gray-900 md:text-lg lg:text-xl">
+            of Centurion University of Technology & Management (CUTM)
+          </h2>
+          <p className="text-xs font-medium text-gray-500 dark:text-gray-400 md:text-sm lg:text-base">
             Awarding Body recognized by NCVET
           </p>
         </div>
-        <div className="flex items-center space-x-4">
-          <a href="#">
-            <img
-              src={images.ncvetlogo}
-              alt="NCVET Logo"
-              className="w-[104px] h-[104px] object-contain md:w-32"
-            />
-          </a>
-          <a href="#">
-            <img
-              src={images.skillindialogo}
-              alt="Skill India Logo"
-              className="w-[104px] h-[104px] object-contain md:w-32"
-            />
-          </a>
+
+        <div className="flex flex-col items-center md:items-end">
+          <div className="flex items-center space-x-4 mb-2">
+            <a href="#">
+              <img
+                src={images.ncvetlogo}
+                alt="NCVET Logo"
+                className="w-22 h-22 object-contain md:w-28 md:h-28"
+              />
+            </a>
+            <a href="#">
+              <img
+                src={images.skillindialogo}
+                alt="Skill India Logo"
+                className="w-18 h-18 object-contain md:w-28 md:h-28"
+              />
+            </a>
+          </div>
+          <span className="text-sm md:text-base font-medium">
+            Toll Free: +919345678998
+          </span>
         </div>
       </header>
-      <nav className="sticky top-0 shadow-md w-full border border-[#001d3d] z-50 bg-gray-900">
+      <nav className="sticky top-0 shadow-md w-full border border-[#001d3d] z-50 bg-[#070F36]">
         <div className="container mx-4 px-4">
           <div className="flex items-center justify-end py-4 relative gap-8">
             <div className="md:hidden">
@@ -172,9 +187,13 @@ function Navbar() {
                 </Link>
               </li>
             </ul>
-            <Link to="/contact" className="hidden md:block" onClick={handleContactClick}>
+            <Link
+              to="/contact"
+              className="hidden md:block"
+              onClick={handleContactClick}
+            >
               <button className="btn bg-[#0066ff] text-base text-white font-semibold px-3 py-1 rounded duration-500 hover:bg-[#3f37c9]">
-                Contact Us
+                Portal login
               </button>
             </Link>
           </div>
