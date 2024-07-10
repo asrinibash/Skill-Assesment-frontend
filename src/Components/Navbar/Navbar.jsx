@@ -6,15 +6,15 @@ import "./Navbar.css";
 function Navbar() {
   const links = [
     { name: "Home", link: "/" },
-    { name: "Partners", link: "/partner" },
     {
-      name: "Our Teams",
-      link: "",
+      name: "About Us", link: "/about",
     },
+    { name: "Partners", link: "/partner" },
+    { name: "Training & Assessments", link: "/partner" },
+
     { name: "Resources", link: "/resource" },
     {
-      name: "Notifications",
-      link: "/news",
+      name: "Notifications", link: "/notification",
       // submenu: [
       //   {
       //     name: "Training Partner Login",
@@ -188,7 +188,7 @@ function Navbar() {
               </li>
             </ul>
             <Link
-              to="/contact"
+              to="/portal"
               className="hidden md:block"
               onClick={handleContactClick}
             >

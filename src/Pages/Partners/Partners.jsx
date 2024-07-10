@@ -4,6 +4,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
+import { motion } from "framer-motion";
+import { FaChartLine, FaLightbulb, FaPuzzlePiece } from "react-icons/fa";
 
 export default function Component() {
   const partners = [
@@ -142,51 +144,115 @@ export default function Component() {
 
 function HeroSection() {
   return (
-    <section className="w-full py-12 md:py-24 bg-gradient-to-r from-blue-100 to-indigo-300 text-gray-800">
+    <section className="w-full py-20 md:py-32 bg-gradient-to-r from-blue-100 to-indigo-300 text-gray-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 items-center">
-          <div>
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl mb-6">
-              Empowering Stakeholders for Growth
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-600">
-              Our comprehensive assessment solutions help organizations identify
-              and nurture talent, ensuring success.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-white text-blue-600 font-medium hover:bg-blue-50 transition-colors"
-              >
-                Learn More
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-blue-500 text-white font-medium hover:bg-blue-400 transition-colors"
-              >
-                Contact Us
-              </a>
-            </div>
+        <motion.div
+          className="text-center max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl mb-6">
+            Empowering <span className="text-blue-600">Stakeholders</span> for
+            Growth
+          </h1>
+          <p className="text-xl md:text-2xl mb-10 text-gray-600">
+            Our comprehensive assessment solutions help organizations identify
+            and nurture talent, ensuring success across all levels.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.a
+              href="#"
+              className="inline-flex items-center justify-center px-8 py-3 rounded-md bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors text-lg"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Learn More
+            </motion.a>
+            <motion.a
+              href="#"
+              className="inline-flex items-center justify-center px-8 py-3 rounded-md bg-white text-blue-600 font-medium hover:bg-blue-50 transition-colors border border-blue-600 text-lg"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Contact Us
+            </motion.a>
           </div>
-          <div className=" lg:block">
-            <img
-              src="https://images.unsplash.com/photo-1630673287511-4d477913d7a0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3Rha2Vob2xkZXJzfGVufDB8fDB8fHww"
-              alt="Stakeholders"
-              className="rounded-lg shadow-xl"
-            />
-          </div>
-        </div>
+        </motion.div>
+        <motion.div
+          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <FeatureCard
+            title="Comprehensive Assessments"
+            description="Gain deep insights into your organization's talent landscape."
+          />
+          <FeatureCard
+            title="Data-Driven Decisions"
+            description="Make informed choices based on robust analytics and reporting."
+          />
+          <FeatureCard
+            title="Tailored Solutions"
+            description="Customized approaches to meet your unique organizational needs."
+          />
+        </motion.div>
       </div>
     </section>
   );
 }
 
-function CarouselSection({
-  title,
-  description,
-  items,
-  CardComponent,
-}) {
+function FeatureCard({ title, description, icon }) {
+  const iconComponents = {
+    chart: FaChartLine,
+    lightbulb: FaLightbulb,
+    puzzle: FaPuzzlePiece,
+  };
+
+  const IconComponent = iconComponents[icon] || FaLightbulb;
+
+  return (
+    <motion.div
+      className="bg-white bg-opacity-50 rounded-lg p-6 flex flex-col items-center text-center"
+      whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
+      transition={{ duration: 0.3 }}
+    >
+      <motion.div
+        className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4"
+        whileHover={{ rotate: 360 }}
+        transition={{ duration: 0.6 }}
+      >
+        <IconComponent className="text-3xl text-blue-600" />
+      </motion.div>
+      <h3 className="text-xl font-semibold mb-3 text-gray-800">{title}</h3>
+      <p className="text-gray-600 mb-4">{description}</p>
+      <motion.a
+        href="#"
+        className="text-blue-600 font-medium hover:text-blue-700 transition-colors inline-flex items-center"
+        whileHover={{ x: 5 }}
+      >
+        Learn More
+        <svg
+          className="w-4 h-4 ml-1"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </motion.a>
+    </motion.div>
+  );
+}
+
+function CarouselSection({ title, description, items, CardComponent }) {
   return (
     <section className="w-full py-16 bg-gradient-to-b from-blue-50 to-indigo-100">
       <div className="container mx-auto px-4 md:px-6">
