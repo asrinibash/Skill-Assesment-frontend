@@ -46,51 +46,56 @@ function Navbar() {
 
   return (
     <>
-      <header className="flex flex-col items-center justify-between px-4 py-3 space-y-4 md:flex-row md:space-y-0 md:px-6 md:py-4 lg:px-8">
-        <div className="flex items-center">
-          <a href="#">
-            <img
-              src={images.logo}
-              alt="logo"
-              className="w-24 h-24 object-contain md:w-32 md:h-32"
-            />
-          </a>
-        </div>
+      <header className="px-4 py-3 space-y-4 md:px-6 md:py-4 lg:px-8">
+  <div className="flex flex-col items-center space-y-4 sm:flex-row sm:justify-between sm:space-y-0">
+    {/* Logo */}
+    <div className="flex items-center">
+      <a href="#">
+        <img
+          src={images.logo}
+          alt="logo"
+          className="w-20 h-20 object-contain sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32"
+        />
+      </a>
+    </div>
 
-        <div className="text-center md:text-left md:flex-1 md:mx-4">
-          <h1 className="text-lg font-semibold text-gray-900 md:text-xl lg:text-3xl">
-            Assessment Management System (AMSAY)
-          </h1>
-          <h2 className="text-sm font-semibold text-gray-900 md:text-lg lg:text-xl">
-            of Centurion University of Technology & Management (CUTM)
-          </h2>
-          <p className="text-xs font-medium text-gray-500 dark:text-gray-400 md:text-sm lg:text-base">
-            Awarding Body recognized by NCVET
-          </p>
-        </div>
+    {/* Title and Subtitle */}
+    <div className="text-center sm:text-left sm:flex-1 sm:mx-4">
+      <h1 className="text-lg font-semibold text-gray-900 sm:text-xl md:text-2xl lg:text-3xl">
+        Assessment Management System (AMSAY)
+      </h1>
+      <h2 className="text-sm font-semibold text-gray-900 sm:text-base md:text-lg lg:text-xl">
+        of Centurion University of Technology & Management (CUTM)
+      </h2>
+      <p className="text-xs font-medium text-gray-500 dark:text-gray-400 sm:text-sm lg:text-base">
+        Awarding Body recognized by NCVET
+      </p>
+    </div>
 
-        <div className="flex flex-col items-center md:items-end">
-          <div className="flex items-center space-x-4 mb-2">
-            <a href="#">
-              <img
-                src={images.ncvetlogo}
-                alt="NCVET Logo"
-                className="w-22 h-22 object-contain md:w-28 md:h-28"
-              />
-            </a>
-            <a href="#">
-              <img
-                src={images.skillindialogo}
-                alt="Skill India Logo"
-                className="w-18 h-18 object-contain md:w-28 md:h-28"
-              />
-            </a>
-          </div>
-          <span className="text-sm md:text-base font-medium">
-            Toll Free: +919345678998
-          </span>
-        </div>
-      </header>
+    {/* Logos and Contact */}
+    <div className="flex flex-col items-center sm:items-end">
+      <div className="flex items-center space-x-2 sm:space-x-4 mb-2">
+        <a href="#">
+          <img
+            src={images.ncvetlogo}
+            alt="NCVET Logo"
+            className="w-16 h-16 object-contain sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28"
+          />
+        </a>
+        <a href="#">
+          <img
+            src={images.skillindialogo}
+            alt="Skill India Logo"
+            className="w-14 h-14 object-contain sm:w-18 sm:h-18 md:w-22 md:h-22 lg:w-28 lg:h-28"
+          />
+        </a>
+      </div>
+      <span className="text-xs sm:text-sm md:text-base font-medium">
+        Toll Free: +919345678998
+      </span>
+    </div>
+  </div>
+</header>
       <nav className="sticky top-0 shadow-md w-full border border-[#001d3d] z-50 bg-[#070F36]">
         <div className="container mx-4 px-4">
           <div className="flex items-center justify-end py-4 relative gap-8">

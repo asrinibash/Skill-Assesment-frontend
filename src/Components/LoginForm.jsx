@@ -1,106 +1,187 @@
-import React, { useState } from 'react';
-import { FcGoogle } from 'react-icons/fc';
-import { FaApple } from 'react-icons/fa';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
+  const [role, setRole] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!role) newErrors.role = "Role is required";
+    if (!email) newErrors.email = "Email is required";
+    if (!password) newErrors.password = "Password is required";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
+    if (validateForm()) {
+      // Handle form submission
+    }
   };
 
   return (
-    <div className="flex h-screen bg-gray-900">
-      <div className="w-1/2 flex items-center justify-center">
-        <div className="w-96 p-8">
-          <h2 className="text-3xl text-center font-bold text-white mb-6">Welcome back !</h2>
-        
+    <div className="flex flex-col md:flex-row shadow-2xl rounded-xl overflow-hidden mx-auto max-w-6xl my-16">
+      {/* New Partner Section */}
+      <div className="relative w-full md:w-1/2 bg-indigo-500 p-10 flex flex-col justify-start items-start text-white">
+        <div
+          className="absolute inset-0 bg-cover bg-center brightness-50"
+          style={{
+            backgroundImage: 'url("https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
+          }}
+        />
+        <div className="relative w-full z-10">
+          <h2 className="text-4xl font-bold mb-6">New to Our Platform?</h2>
+          <p className="mb-8 text-lg">Choose your registration type:</p>
+
           
-          <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label className="block text-gray-400 mb-2" htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                className="w-full p-2 bg-gray-800 text-white rounded"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="mb-6">
-              <label className="block text-gray-400 mb-2" htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                className="w-full p-2 bg-gray-800 text-white rounded"
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <button type="submit" className="w-full py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700">
-              Sign in to your account
-            </button>
-          </form>
-          <p className="mt-4 text-center text-gray-500">
-            Don't have an account? <a href="#" className="text-blue-500 hover:underline">Sign up</a>
-          </p>
+          <div className="flex justify-evenly w-full mb-8">
+            <motion.div
+              className={`flex-1 p-6 m-2 rounded-lg flex flex-col items-center justify-center transition-all cursor-pointer bg-white bg-opacity-50 ${
+                selectedOption === "trainingPartner"
+                  ? "bg-opacity-75 text-blue-600"
+                  : "hover:bg-opacity-75"
+              }`}
+              onClick={() => setSelectedOption("trainingPartner")}
+            >
+              <svg
+                className="w-12 h-12 mb-3"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="font-semibold text-lg">Training Partner</span>
+            </motion.div>
+            <motion.div
+              className={`flex-1 p-6 m-2 rounded-lg flex flex-col items-center justify-center transition-all cursor-pointer bg-white bg-opacity-50 ${
+                selectedOption === "assessmentAgency"
+                  ? "bg-opacity-75 text-blue-600"
+                  : "hover:bg-opacity-75"
+              }`}
+              onClick={() => setSelectedOption("assessmentAgency")}
+            >
+              <svg
+                className="w-12 h-12 mb-3"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="font-semibold text-lg text-center">
+                Assessment Agency
+              </span>
+            </motion.div>
+          </div>
+          <motion.button
+            className={`w-full py-3 px-6 bg-white text-blue-600 rounded-lg font-semibold text-lg transition duration-300 ${
+              !selectedOption
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:bg-blue-50"
+            }`}
+            disabled={!selectedOption}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            Register Now
+          </motion.button>
         </div>
-      </div>
+        </div>
       
-      <div className="w-1/2 bg-blue-600 flex items-center justify-center">
-  <div className="text-white p-8 max-w-2xl">
-    <h1 className="text-4xl font-bold mb-6">Design Guidelines</h1>
-    <h2 className="text-2xl font-semibold mb-4">
-      Follow these principles to create outstanding designs:
-    </h2>
-    <ul className="space-y-4 mb-8">
-      <li className="flex items-start">
-        <svg className="w-6 h-6 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        <span>Maintain consistency across all elements and pages</span>
-      </li>
-      <li className="flex items-start">
-        <svg className="w-6 h-6 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        <span>Use a clear visual hierarchy to guide users' attention</span>
-      </li>
-      <li className="flex items-start">
-        <svg className="w-6 h-6 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        <span>Ensure accessibility with proper color contrast and text sizes</span>
-      </li>
-      <li className="flex items-start">
-        <svg className="w-6 h-6 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        <span>Implement responsive design for various screen sizes</span>
-      </li>
-      <li className="flex items-start">
-        <svg className="w-6 h-6 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        <span>Optimize loading times and performance</span>
-      </li>
-      <li className="flex items-start">
-        <svg className="w-6 h-6 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        <span>Conduct user testing to refine and improve the design</span>
-      </li>
-    </ul>
-    <p className="text-lg font-semibold">
-      Following these guidelines will help ensure a high-quality, user-friendly design.
-    </p>
-  </div>
-</div>
+      {/* Login Form */}
+      <div className="w-full md:w-1/2 p-10 bg-white">
+        <h2 className="text-4xl font-bold text-gray-800 mb-8">Welcome Back</h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label
+              className="block text-gray-700 text-sm font-semibold mb-2"
+              htmlFor="role"
+            >
+              Select Your Role
+            </label>
+            <select
+              id="role"
+              className={`w-full p-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ${
+                errors.role ? "border-red-500" : "border-gray-300"
+              }`}
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+            >
+              <option value="">Select Role</option>
+              <option value="trainingPartner">Training Partner</option>
+              <option value="assessmentAgency">Assessment Agency</option>
+              <option value="admin">Admin</option>
+            </select>
+            {errors.role && (
+              <p className="text-red-500 text-sm mt-1">{errors.role}</p>
+            )}
+          </div>
+          <div>
+            <label
+              className="block text-gray-700 text-sm font-semibold mb-2"
+              htmlFor="email"
+            >
+              Email Address
+            </label>
+            <input
+              type="email"
+              id="email"
+              className={`w-full p-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ${
+                errors.email ? "border-red-500" : "border-gray-300"
+              }`}
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            )}
+          </div>
+          <div>
+            <label
+              className="block text-gray-700 text-sm font-semibold mb-2"
+              htmlFor="password"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className={`w-full p-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ${
+                errors.password ? "border-red-500" : "border-gray-300"
+              }`}
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+            )}
+          </div>
+          <motion.button
+            type="submit"
+            className="w-full py-3 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition duration-300"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            Sign In
+          </motion.button>
+        </form>
+      </div>
     </div>
   );
 };

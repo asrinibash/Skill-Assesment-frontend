@@ -15,13 +15,13 @@ export default function AboutUs() {
 
 function AboutUsSection() {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="w-full py-16 bg-gradient-to-r from-blue-100 to-indigo-300 text-gray-900"
-    >
-      <section className="w-full py-16 bg-gradient-to-r from-blue-100 to-indigo-300 text-gray-900">
+    <section className="w-full py-16 bg-gradient-to-r from-blue-100 to-indigo-300 text-gray-900">
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full py-16 bg-gradient-to-r from-blue-100 to-indigo-300 text-gray-900"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl mb-6">
@@ -65,204 +65,10 @@ function AboutUsSection() {
             />
           </div>
         </div>
-      </section>
-    </motion.section>
-  );
-}
-
-function ImageGallery() {
-  const programs = [
-    {
-      name: "Leadership Assessment",
-      image:
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGVhZGVyc2hpcHxlbnwwfHwwfHx8MA%3D%3D",
-    },
-    {
-      name: "Technical Skills Evaluation",
-      image:
-        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaG5pY2FsJTIwc2tpbGxzfGVufDB8fDB8fHww",
-    },
-    {
-      name: "Soft Skills Development",
-      image:
-        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c29mdCUyMHNraWxsc3xlbnwwfHwwfHx8MA%3D%3D",
-    },
-    {
-      name: "Career Aptitude Testing",
-      image:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FyZWVyfGVufDB8fDB8fHww",
-    },
-    {
-      name: "Team Building Workshops",
-      image:
-        "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbSUyMGJ1aWxkaW5nfGVufDB8fDB8fHww",
-    },
-    {
-      name: "Executive Coaching",
-      image:
-        "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZXhlY3V0aXZlJTIwY29hY2hpbmd8ZW58MHx8MHx8fDA%3D",
-    },
-  ];
-
-  return (
-    <section className="w-full py-16 bg-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-8 text-center text-gray-800">
-          Our Highlighted Programs
-        </h2>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, staggerChildren: 0.1 }}
-          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-        >
-          {programs.map((program, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="relative overflow-hidden rounded-lg shadow-md aspect-w-16 aspect-h-9"
-            >
-              <div
-                key={index}
-                className="relative overflow-hidden rounded-lg shadow-md aspect-w-16 aspect-h-9"
-              >
-                <img
-                  src={program.image}
-                  alt={program.name}
-                  className="object-cover w-full h-full"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                  <h3 className="text-white text-xl font-semibold text-center">
-                    {program.name}
-                  </h3>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+      </motion.section>
     </section>
   );
 }
-function OurTeam() {
-  const teamMembers = [
-    {
-      name: "John Doe",
-      role: "CEO",
-      image: "https://randomuser.me/api/portraits/men/1.jpg",
-    },
-    {
-      name: "Jane Smith",
-      role: "CTO",
-      image: "https://randomuser.me/api/portraits/women/1.jpg",
-    },
-    {
-      name: "Mike Johnson",
-      role: "COO",
-      image: "https://randomuser.me/api/portraits/men/2.jpg",
-    },
-    {
-      name: "Sarah Brown",
-      role: "Head of HR",
-      image: "https://randomuser.me/api/portraits/women/2.jpg",
-    },
-    {
-      name: "David Lee",
-      role: "Lead Developer",
-      image: "https://randomuser.me/api/portraits/men/3.jpg",
-    },
-    {
-      name: "Emily Chen",
-      role: "UX Designer",
-      image: "https://randomuser.me/api/portraits/women/3.jpg",
-    },
-    {
-      name: "Alex Turner",
-      role: "Data Scientist",
-      image: "https://randomuser.me/api/portraits/men/4.jpg",
-    },
-    {
-      name: "Lisa Wang",
-      role: "Marketing Manager",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
-    },
-    {
-      name: "Tom Wilson",
-      role: "Sales Director",
-      image: "https://randomuser.me/api/portraits/men/5.jpg",
-    },
-    {
-      name: "Rachel Green",
-      role: "Customer Support Lead",
-      image: "https://randomuser.me/api/portraits/women/5.jpg",
-    },
-    {
-      name: "Chris Taylor",
-      role: "Financial Analyst",
-      image: "https://randomuser.me/api/portraits/men/6.jpg",
-    },
-    {
-      name: "Amanda White",
-      role: "Content Strategist",
-      image: "https://randomuser.me/api/portraits/women/6.jpg",
-    },
-    {
-      name: "Ryan Murphy",
-      role: "Product Manager",
-      image: "https://randomuser.me/api/portraits/men/7.jpg",
-    },
-    {
-      name: "Olivia Davis",
-      role: "Quality Assurance",
-      image: "https://randomuser.me/api/portraits/women/7.jpg",
-    },
-    {
-      name: "Daniel Kim",
-      role: "Business Development",
-      image: "https://randomuser.me/api/portraits/men/8.jpg",
-    },
-  ];
-
-  return (
-    <section className="w-full py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-8 text-center text-gray-800">
-          Our Team
-        </h2>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, staggerChildren: 0.05 }}
-          className="grid gap-8 md:grid-cols-3 lg:grid-cols-5"
-        >
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex flex-col items-center"
-            >
-              <div key={index} className="flex flex-col items-center">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-32 h-32 rounded-full mb-4 object-cover"
-                />
-                <h3 className="text-lg font-semibold text-gray-800">
-                  {member.name}
-                </h3>
-                <p className="text-sm text-gray-600">{member.role}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
 function AboutUsCard({ title, description, icon }) {
   return (
     <div className="bg-white bg-opacity-50 rounded-lg p-6 backdrop-filter backdrop-blur-lg">
@@ -274,7 +80,6 @@ function AboutUsCard({ title, description, icon }) {
     </div>
   );
 }
-
 function MissionIcon() {
   return (
     <svg
@@ -392,5 +197,191 @@ function ImpactIcon() {
         d="M13 10V3L4 14h7v7l9-11h-7z"
       />
     </svg>
+  );
+}
+function ImageGallery() {
+  const programs = [
+    {
+      name: "Leadership Assessment",
+      image:
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGVhZGVyc2hpcHxlbnwwfHwwfHx8MA%3D%3D",
+    },
+    {
+      name: "Technical Skills Evaluation",
+      image:
+        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaG5pY2FsJTIwc2tpbGxzfGVufDB8fDB8fHww",
+    },
+    {
+      name: "Soft Skills Development",
+      image:
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c29mdCUyMHNraWxsc3xlbnwwfHwwfHx8MA%3D%3D",
+    },
+    {
+      name: "Career Aptitude Testing",
+      image:
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FyZWVyfGVufDB8fDB8fHww",
+    },
+    {
+      name: "Team Building Workshops",
+      image:
+        "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbSUyMGJ1aWxkaW5nfGVufDB8fDB8fHww",
+    },
+    {
+      name: "Executive Coaching",
+      image:
+        "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZXhlY3V0aXZlJTIwY29hY2hpbmd8ZW58MHx8MHx8fDA%3D",
+    },
+  ];
+
+  return (
+    <section className="w-full py-16 bg-blue-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-8 text-center text-gray-800">
+          Our Highlighted Programs
+        </h2>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, staggerChildren: 0.1 }}
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {programs.map((program, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative overflow-hidden rounded-lg shadow-md aspect-w-16 aspect-h-9"
+            >
+              <img
+                src={program.image}
+                alt={program.name}
+                className="object-cover w-full h-full"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <h3 className="text-white text-xl font-semibold text-center">
+                  {program.name}
+                </h3>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function OurTeam() {
+  const teamMembers = [
+    {
+      name: "John Doe",
+      role: "CEO",
+      image: "https://randomuser.me/api/portraits/men/1.jpg",
+    },
+    {
+      name: "Jane Smith",
+      role: "CTO",
+      image: "https://randomuser.me/api/portraits/women/1.jpg",
+    },
+    {
+      name: "Mike Johnson",
+      role: "COO",
+      image: "https://randomuser.me/api/portraits/men/2.jpg",
+    },
+    {
+      name: "Sarah Brown",
+      role: "Head of HR",
+      image: "https://randomuser.me/api/portraits/women/2.jpg",
+    },
+    {
+      name: "David Lee",
+      role: "Lead Developer",
+      image: "https://randomuser.me/api/portraits/men/3.jpg",
+    },
+    {
+      name: "Emily Chen",
+      role: "UX Designer",
+      image: "https://randomuser.me/api/portraits/women/3.jpg",
+    },
+    {
+      name: "Alex Turner",
+      role: "Data Scientist",
+      image: "https://randomuser.me/api/portraits/men/4.jpg",
+    },
+    {
+      name: "Lisa Wang",
+      role: "Marketing Manager",
+      image: "https://randomuser.me/api/portraits/women/4.jpg",
+    },
+    {
+      name: "Tom Wilson",
+      role: "Sales Director",
+      image: "https://randomuser.me/api/portraits/men/5.jpg",
+    },
+    {
+      name: "Rachel Green",
+      role: "Customer Support Lead",
+      image: "https://randomuser.me/api/portraits/women/5.jpg",
+    },
+    {
+      name: "Chris Taylor",
+      role: "Financial Analyst",
+      image: "https://randomuser.me/api/portraits/men/6.jpg",
+    },
+    {
+      name: "Amanda White",
+      role: "Content Strategist",
+      image: "https://randomuser.me/api/portraits/women/6.jpg",
+    },
+    {
+      name: "Ryan Murphy",
+      role: "Product Manager",
+      image: "https://randomuser.me/api/portraits/men/7.jpg",
+    },
+    {
+      name: "Olivia Davis",
+      role: "Quality Assurance",
+      image: "https://randomuser.me/api/portraits/women/7.jpg",
+    },
+    {
+      name: "Daniel Kim",
+      role: "Business Development",
+      image: "https://randomuser.me/api/portraits/men/8.jpg",
+    },
+  ];
+
+  return (
+    <section className="w-full py-16 bg-gradient-to-b from-blue-50 to-indigo-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-8 text-center text-gray-800">
+          Our Team
+        </h2>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, staggerChildren: 0.05 }}
+          className="grid gap-8 md:grid-cols-3 lg:grid-cols-5"
+        >
+          {teamMembers.map((member, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex flex-col items-center"
+            >
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-32 h-32 rounded-full mb-4 object-cover"
+              />
+              <h3 className="text-lg font-semibold text-gray-800">
+                {member.name}
+              </h3>
+              <p className="text-sm text-gray-600">{member.role}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 }

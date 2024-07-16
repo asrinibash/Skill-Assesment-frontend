@@ -3,70 +3,70 @@ import React from "react";
 const notifications = [
   {
     id: 1,
-    heading: "Important Update on Campus Policies",
+    heading: "notification 1",
     description:
       "New guidelines regarding campus access and safety protocols have been implemented.",
     pdfLink: "/pdfs/campus_policy_update.pdf",
   },
   {
     id: 2,
-    heading: "Upcoming Virtual Career Fair",
+    heading: "notification 2",
     description:
       "Join us for a virtual career fair featuring top employers in the industry.",
     pdfLink: "/pdfs/career_fair_details.pdf",
   },
   {
     id: 3,
-    heading: "Changes to Course Registration Process",
+    heading: "notification 3",
     description:
       "Please review the new course registration process for the upcoming semester.",
     pdfLink: "/pdfs/course_registration_changes.pdf",
   },
   {
     id: 4,
-    heading: "Changes to Course Registration Process",
+    heading: "notification 4",
     description:
       "Please review the new course registration process for the upcoming semester.",
     pdfLink: "/pdfs/course_registration_changes.pdf",
   },
   {
     id: 5,
-    heading: "Changes to Course Registration Process",
+    heading: "notification 5",
     description:
       "Please review the new course registration process for the upcoming semester.",
     pdfLink: "/pdfs/course_registration_changes.pdf",
   },
   {
     id: 6,
-    heading: "Changes to Course Registration Process",
+    heading: "notification 6",
     description:
       "Please review the new course registration process for the upcoming semester.",
     pdfLink: "/pdfs/course_registration_changes.pdf",
   },
   {
     id: 7,
-    heading: "Changes to Course Registration Process",
+    heading: "notification 7",
     description:
       "Please review the new course registration process for the upcoming semester.",
     pdfLink: "/pdfs/course_registration_changes.pdf",
   },
   {
     id: 8,
-    heading: "Changes to Course Registration Process",
+    heading: "notification 8",
     description:
       "Please review the new course registration process for the upcoming semester.",
     pdfLink: "/pdfs/course_registration_changes.pdf",
   },
   {
     id: 9,
-    heading: "Changes to Course Registration Process",
+    heading: "notification 9",
     description:
       "Please review the new course registration process for the upcoming semester.",
     pdfLink: "/pdfs/course_registration_changes.pdf",
   },
   {
     id: 10,
-    heading: "Changes to Course Registration Process",
+    heading: "notification 10",
     description:
       "Please review the new course registration process for the upcoming semester.",
     pdfLink: "/pdfs/course_registration_changes.pdf",
