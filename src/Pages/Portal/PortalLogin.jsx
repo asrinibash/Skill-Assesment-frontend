@@ -8,30 +8,33 @@ function PortalLogin() {
       {/* Hero Section */}
       <section className="w-full py-12 md:py-24 bg-gradient-to-r from-blue-100 to-indigo-300">
         <motion.div
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900">
-            Welcome to Our <span className="text-blue-600">Assessment Portal</span>
+            Welcome to Our{" "}
+            <span className="text-blue-600">Assessment Portal</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-600">
-            Access your account to manage trainings, conduct assessments, and more. We're here to support your journey in skill development and certification.
+            Access your account to manage trainings, conduct assessments, and
+            more. We're here to support your journey in skill development and
+            certification.
           </p>
         </motion.div>
       </section>
-      
+
       {/* Login Form Section */}
       <section className="bg-gradient-to-b from-blue-50 to-indigo-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* <h2 className="text-4xl font-bold text-gray-900 text-center mb-8">
+          {/* <h2 className="text-4xl font-bold text-gray-900 text-center mb-8">
               Login to Your Account
             </h2> */}
           <LoginForm />
         </div>
       </section>
-      
+
       {/* Certificate Download Section */}
       <section className="w-full py-16 bg-gradient-to-b from-blue-50 to-indigo-100">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
