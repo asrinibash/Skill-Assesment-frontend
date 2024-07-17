@@ -13,11 +13,9 @@ import PortalLogin from "./Pages/Portal/PortalLogin.jsx";
 import TraningAndAssignment from "./Pages/TraningAndAssignment/TraningAndAssignment.jsx";
 import Qualification from "./Pages/Qualification/Qualification.jsx";
 
-
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="" element={<Home />} />
