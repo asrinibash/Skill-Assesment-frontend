@@ -1,6 +1,8 @@
 import React from "react";
-import images from "../../Constants/images";
-
+import students from "../../assets/students.png"
+import govt from "../../assets/govt.png"
+import assesmentagencies from "../../assets/assesmentagencies.png"
+import traningpartner from "../../assets/traningpartner.png"
 function FeaturesSection() {
   return (
     <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -21,25 +23,25 @@ function FeaturesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <FeatureCard
-            image={images.students}
+            image={students}
             number="10,000+"
             title="Students Trained"
             description="Trained 10,000+ students in different states"
           />
           <FeatureCard
-            image={images.govt}
+            image={govt}
             number="50+"
             title="Government Projects"
             description="Working with 50+ government projects and organizations"
           />
           <FeatureCard
-            image={images.traningpartner}
+            image={traningpartner}
             number="100+"
             title="Training Partners"
             description="We have 100+ Training Partners with us"
           />
           <FeatureCard
-            image={images.assesmentagencies}
+            image={assesmentagencies}
             number="100+"
             title="Assignment Partners"
             description="We have 100+ Assignment agencies with us"

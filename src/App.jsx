@@ -12,8 +12,9 @@ import Partners from "./Pages/Partners/Partners.jsx";
 import News from "./Pages/News/News.jsx";
 import Resource from "./Pages/Resource/Resource.jsx";
 import ContactUs from "./Pages/ContactUs/ContactUs.jsx";
-import PortalLogin from "./Pages/Portal/PortalLogin.jsx"
-
+import PortalLogin from "./Pages/Portal/PortalLogin.jsx";
+import TraningAndAssignment from "./Pages/TraningAndAssignment/TraningAndAssignment.jsx";
+import Qualification from "./Pages/Qualification/Qualification.jsx";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -21,6 +22,8 @@ function App() {
         <Route path="" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="partner" element={<Partners />} />
+        <Route path="tp" element={<TraningAndAssignment />} />
+        <Route path="qualification" element={<Qualification />} />
         <Route path="notification" element={<News />} />
         <Route path="resource" element={<Resource />} />
         <Route path="contact" element={<ContactUs />} />

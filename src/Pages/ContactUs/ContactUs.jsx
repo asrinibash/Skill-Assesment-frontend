@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { images } from "../../Constants";
+
+import carousel3 from "../../assets/carousel3.jpeg";
+
 import LocationAndContact from "../../Components/HomeComponents/LocationAndContact.jsx";
 
 export default function ContactUs() {
   return (
     <div className="flex flex-col min-h-screen ">
       <main className="flex-1">
-      <ContactHeroSection/>
+        <ContactHeroSection />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <LocationAndContact />
 
@@ -104,11 +106,10 @@ function ContactHeroSection() {
               Contact Us
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-600">
-              We're here to help! Get in touch with our team to learn more
-              about our assessment solutions and how we can empower your
-              organization. We're here to help! Get in touch with our team
-              to learn more about our assessment solutions and how we can
-              empower your organization.
+              We're here to help! Get in touch with our team to learn more about
+              our assessment solutions and how we can empower your organization.
+              We're here to help! Get in touch with our team to learn more about
+              our assessment solutions and how we can empower your organization.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <Link
@@ -127,7 +128,7 @@ function ContactHeroSection() {
           </div>
           <div className="relative">
             <img
-              src={images.carosel3}
+              src={carousel3}
               alt="Contact Us"
               className="w-full h-auto rounded-2xl shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out"
             />

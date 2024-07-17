@@ -71,13 +71,17 @@ function AboutUsSection() {
 }
 function AboutUsCard({ title, description, icon }) {
   return (
-    <div className="bg-white bg-opacity-50 rounded-lg p-6 backdrop-filter backdrop-blur-lg">
+    <motion.div
+      className="bg-white bg-opacity-50 rounded-lg p-6 backdrop-filter backdrop-blur-lg"
+      whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
+      transition={{ duration: 0.3 }}
+    >
       <div className="flex items-center mb-4">
         <div className="mr-4 text-yellow-600">{icon}</div>
         <h2 className="text-blue-600 text-2xl font-semibold">{title}</h2>
       </div>
       <p className="text-gray-600">{description}</p>
-    </div>
+    </motion.div>
   );
 }
 function MissionIcon() {

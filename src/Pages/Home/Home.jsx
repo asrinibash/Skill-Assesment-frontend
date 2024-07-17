@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { images } from "../../Constants";
+import carousel1 from "../../assets/carousel1.jpeg"
+import carousel2 from "../../assets/carousel2.jpeg"
+import carousel3 from "../../assets/carousel3.jpeg"
+import carousel4 from "../../assets/carousel4.jpeg"
 import AboutUsSection from "../../Components/HomeComponents/AboutUsSection.jsx";
 import FeaturesSection from "../../Components/HomeComponents/FeaturesSection.jsx";
 import KeyStakeholders from "../../Components/HomeComponents/KeyStakeholders.jsx";
@@ -8,10 +11,10 @@ import NewsAndSchemes from "../../Components/HomeComponents/NewsAndSchemes.jsx";
 
 function Home() {
   const slides = [
-    images.carosel1,
-    images.carosel2,
-    images.carosel3,
-    images.carosel4,
+    carousel1,
+    carousel2,
+    carousel3,
+    carousel4,
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
