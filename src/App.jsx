@@ -1,38 +1,43 @@
 import React from "react";
-import {
-  createBrowserRouter,
-  Route,
-  createRoutesFromElements,
-  RouterProvider,
-} from "react-router-dom";
-import Layout from "./layout.jsx";
-import Home from "./Pages/Home/Home.jsx";
-import About from "./Pages/About/AboutUs.jsx";
-import Partners from "./Pages/Partners/Partners.jsx";
-import News from "./Pages/News/News.jsx";
-import Resource from "./Pages/Resource/Resource.jsx";
-import ContactUs from "./Pages/ContactUs/ContactUs.jsx";
-import PortalLogin from "./Pages/Portal/PortalLogin.jsx";
-import TraningAndAssignment from "./Pages/TraningAndAssignment/TraningAndAssignment.jsx";
-import Qualification from "./Pages/Qualification/Qualification.jsx";
-function App() {
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path="/" element={<Layout />}>
-        <Route path="" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="partner" element={<Partners />} />
-        <Route path="tp" element={<TraningAndAssignment />} />
-        <Route path="qualification" element={<Qualification />} />
-        <Route path="notification" element={<News />} />
-        <Route path="resource" element={<Resource />} />
-        <Route path="contact" element={<ContactUs />} />
-        <Route path="portal" element={<PortalLogin />} />
-      </Route>
-    )
-  );
+import { Outlet, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import Navbar from "./Components/Navbar/Navbar.jsx";
+import Footer from "./Components/Footer/Footer.jsx";
 
-  return <RouterProvider router={router} />;
+const pageVariants = {
+  initial: { opacity: 0 },
+  in: { opacity: 1 },
+  out: { opacity: 0 },
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "linear",
+  duration: 0.3,
+};
+
+function App() {
+  const location = useLocation();
+  console.log("Rendering App.jsx");
+
+  return (
+    <>
+      <Navbar />
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={location.pathname}
+          initial="initial"
+          animate="in"
+          exit="out"
+          variants={pageVariants}
+          transition={pageTransition}
+        >
+          <Outlet />
+        </motion.div>
+      </AnimatePresence>
+      <Footer />
+    </>
+  );
 }
 
 export default App;
