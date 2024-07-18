@@ -15,7 +15,7 @@ import Qualification from "./Pages/Qualification/Qualification.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <BrowserRouter >
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="" element={<Home />} />
