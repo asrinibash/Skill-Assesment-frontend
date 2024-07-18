@@ -18,7 +18,7 @@ function AboutUsSection() {
               arcu volutpat vel.
             </p>
             <a
-              href="#"
+              href="/about"
               className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
             >
               Learn More About Us

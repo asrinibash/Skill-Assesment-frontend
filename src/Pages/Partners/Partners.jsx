@@ -170,7 +170,7 @@ function HeroSection() {
               Learn More
             </motion.a>
             <motion.a
-              href="#"
+              href="/contact"
               className="inline-flex items-center justify-center px-8 py-3 rounded-md bg-white text-blue-600 font-medium hover:bg-blue-50 transition-colors border border-blue-600 text-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
