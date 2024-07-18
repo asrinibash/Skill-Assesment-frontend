@@ -15,18 +15,18 @@ import Qualification from "./Pages/Qualification/Qualification.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter >
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="" element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="partner" element={<Partners />} />
-          <Route path="tp" element={<TraningAndAssignment />} />
-          <Route path="qualification" element={<Qualification />} />
-          <Route path="notification" element={<News />} />
-          <Route path="resource" element={<Resource />} />
-          <Route path="contact" element={<ContactUs />} />
-          <Route path="portal" element={<PortalLogin />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/partner" element={<Partners />} />
+          <Route path="/tp" element={<TraningAndAssignment />} />
+          <Route path="/qualification" element={<Qualification />} />
+          <Route path="/notification" element={<News />} />
+          <Route path="/resource" element={<Resource />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/portal" element={<PortalLogin />} />
         </Route>
       </Routes>
     </BrowserRouter>
