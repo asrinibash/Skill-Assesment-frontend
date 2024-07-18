@@ -15,18 +15,18 @@ import Qualification from "./Pages/Qualification/Qualification.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
-          <Route path="/skill-assessment/" element={<Home />} />
-        <Route path="/skill-assessment/" element={<App />}>
-          <Route path="/skill-assessment/about" element={<About />} />
-          <Route path="/skill-assessment/partner" element={<Partners />} />
-          <Route path="/skill-assessment/tp" element={<TraningAndAssignment />} />
-          <Route path="/skill-assessment/qualification" element={<Qualification />} />
-          <Route path="/skill-assessment/notification" element={<News />} />
-          <Route path="/skill-assessment/resource" element={<Resource />} />
-          <Route path="/skill-assessment/contact" element={<ContactUs />} />
-          <Route path="/skill-assessment/portal" element={<PortalLogin />} />
+        <Route path="/" element={<App />}>
+          <Route path="" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="partner" element={<Partners />} />
+          <Route path="tp" element={<TraningAndAssignment />} />
+          <Route path="qualification" element={<Qualification />} />
+          <Route path="notification" element={<News />} />
+          <Route path="resource" element={<Resource />} />
+          <Route path="contact" element={<ContactUs />} />
+          <Route path="portal" element={<PortalLogin />} />
         </Route>
       </Routes>
     </BrowserRouter>
