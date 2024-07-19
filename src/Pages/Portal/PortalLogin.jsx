@@ -6,7 +6,7 @@ function PortalLogin() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 bg-gradient-to-r from-blue-100 to-indigo-300">
+      {/* <section className="w-full py-12 md:py-24 bg-gradient-to-r from-blue-100 to-indigo-300">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -23,14 +23,13 @@ function PortalLogin() {
             certification.
           </p>
         </motion.div>
-      </section>
+      </section> */}
 
-      {/* Login Form Section */}
       <section className="bg-gradient-to-b from-blue-50 to-indigo-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* <h2 className="text-4xl font-bold text-gray-900 text-center mb-8">
-              Login to Your Account
-            </h2> */}
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-8">
+              Login to Your <span className="text-blue-600">Dashboard</span> 
+            </h2>
           <LoginForm />
         </div>
       </section>

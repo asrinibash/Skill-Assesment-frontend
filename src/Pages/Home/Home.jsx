@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from "react";
-import carousel1 from "../../assets/carousel1.jpeg"
-import carousel2 from "../../assets/carousel2.jpeg"
-import carousel3 from "../../assets/carousel3.jpeg"
-import carousel4 from "../../assets/carousel4.jpeg"
 import AboutUsSection from "../../Components/HomeComponents/AboutUsSection.jsx";
 import FeaturesSection from "../../Components/HomeComponents/FeaturesSection.jsx";
 import KeyStakeholders from "../../Components/HomeComponents/KeyStakeholders.jsx";
@@ -11,10 +7,10 @@ import NewsAndSchemes from "../../Components/HomeComponents/NewsAndSchemes.jsx";
 
 function Home() {
   const slides = [
-    carousel1,
-    carousel2,
-    carousel3,
-    carousel4,
+    "https://images.unsplash.com/photo-1531973576160-7125cd663d86?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1659241869140-3cb7cdff42fd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1717386255773-1e3037c81788?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1510074377623-8cf13fb86c08?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -59,7 +55,7 @@ function Home() {
   return (
     <section className="bg-gray-50">
       <div
-        className="relative w-full mt-16 md:mt-0 h-[300px] md:h-[500px] lg:h-[600px]"
+        className="relative w-full mt-8 md:mt-0 h-[250px] md:h-[200px] lg:h-[450px]"
         data-carousel="slide"
       >
         <div className="relative overflow-hidden h-full">

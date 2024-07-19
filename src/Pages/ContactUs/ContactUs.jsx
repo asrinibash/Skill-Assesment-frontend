@@ -1,8 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-import carousel3 from "../../assets/carousel3.jpeg";
-
 import LocationAndContact from "../../Components/HomeComponents/LocationAndContact.jsx";
 
 export default function ContactUs() {
@@ -128,9 +125,9 @@ function ContactHeroSection() {
           </div>
           <div className="relative">
             <img
-              src={carousel3}
+              src="https://images.unsplash.com/photo-1659241869140-3cb7cdff42fd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Contact Us"
-              className="w-full h-auto rounded-2xl shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out"
+              className="w-full h-auto rounded-2xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out"
             />
           </div>
         </div>
