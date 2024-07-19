@@ -9,6 +9,7 @@ import {
   FaAngleRight,
 } from "react-icons/fa";
 
+
 function Footer() {
   const footerLinks = [
     { title: "Home", link: "/#" },

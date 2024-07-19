@@ -32,7 +32,8 @@ function App() {
           variants={pageVariants}
           transition={pageTransition}
         >
-          <Outlet />
+
+        <Outlet />
         </motion.div>
       </AnimatePresence>
       <Footer />
