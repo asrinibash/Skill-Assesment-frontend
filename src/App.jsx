@@ -13,17 +13,19 @@ const pageVariants = {
 const pageTransition = {
   type: "tween",
   ease: "linear",
-  duration: 0.3,
+  duration: 0.1,
 };
 
 function App() {
   const location = useLocation();
+
   console.log("Rendering App.jsx");
 
   return (
     <>
       <Navbar />
       <AnimatePresence mode="wait">
+        {/* Ensure the motion.div key reflects the route */}
         <motion.div
           key={location.pathname}
           initial="initial"
@@ -32,8 +34,7 @@ function App() {
           variants={pageVariants}
           transition={pageTransition}
         >
-
-        <Outlet />
+          <Outlet />
         </motion.div>
       </AnimatePresence>
       <Footer />

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { usePortalAuthentication } from "./PortalAuthentication";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
   const [role, setRole] = useState("");
@@ -7,6 +9,9 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
   const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
+  const { loginPortal } = usePortalAuthentication(); // Custom hook for authentication
 
   const validateForm = () => {
     const newErrors = {};
@@ -17,10 +22,19 @@ const LoginForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Handle form submission
+      setIsLoading(true);
+      try {
+        await loginPortal(email, password, role);
+        toast.success("Login successful!");
+        // Redirect or update UI based on successful login
+      } catch (error) {
+        toast.error(error.message || "Login failed. Please try again.");
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -31,14 +45,14 @@ const LoginForm = () => {
         <div
           className="absolute inset-0 bg-cover bg-center brightness-50"
           style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
+            backgroundImage:
+              'url("https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
           }}
         />
         <div className="relative w-full z-10">
           <h2 className="text-4xl font-bold mb-6">New to Our Platform?</h2>
           <p className="mb-8 text-lg">Choose your registration type:</p>
 
-          
           <div className="flex justify-evenly w-full mb-8">
             <motion.div
               className={`flex-1 p-6 m-2 rounded-lg flex flex-col items-center justify-center transition-all cursor-pointer bg-white bg-opacity-50 ${
@@ -100,8 +114,8 @@ const LoginForm = () => {
             Register Now
           </motion.button>
         </div>
-        </div>
-      
+      </div>
+
       {/* Login Form */}
       <div className="w-full md:w-1/2 p-10 bg-white">
         <h2 className="text-4xl font-bold text-gray-800 mb-8">Welcome Back</h2>
@@ -177,8 +191,9 @@ const LoginForm = () => {
             className="w-full py-3 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition duration-300"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
+            disabled={isLoading}
           >
-            Sign In
+            {isLoading ? "Signing In..." : "Sign In"}
           </motion.button>
         </form>
       </div>

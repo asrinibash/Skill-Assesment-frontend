@@ -22,6 +22,7 @@ const KeyStakeholders = () => {
       name: "Student Welfare Organization",
       logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLA994hpL3PMmq0scCuWOu0LGsjef49dyXVg&s",
     },
+    
   ];
 
   return (

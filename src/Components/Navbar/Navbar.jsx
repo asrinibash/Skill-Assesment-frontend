@@ -92,7 +92,7 @@ function Navbar() {
                   : "hidden"
               } xl:static xl:w-auto xl:bg-transparent xl:p-0`}
             >
-              <ul className="xl:flex xl:items-center xl:space-x-4">
+              <ul className="xl:flex xl:items-center xl:space-x-6">
                 {links.map((link) => (
                   <li
                     key={link.name}
@@ -100,7 +100,7 @@ function Navbar() {
                   >
                     <Link
                       to={link.link}
-                      className="text-white hover:text-gray-300 transition duration-300 relative before:content-[''] before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-0.5 before:bg-white before:transition-all before:duration-300 hover:before:w-full hover:before:left-0"
+                      className="text-white hover: transition duration-300 relative before:content-[''] before:absolute before:bottom-0 before:left-1/2 before:w-0 before:h-0.5 before:bg-white before:transition-all before:duration-300 hover:before:w-full hover:before:left-0"
                       onClick={handleNavItemClick}
                     >
                       {link.name}
