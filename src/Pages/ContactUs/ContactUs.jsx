@@ -127,7 +127,7 @@ function ContactHeroSection() {
               </Link>
               <Link
                 to="/about"
-                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-blue-600 bg-white border rounded-md shadow-md hover:bg-blue-50 transition duration-300 ease-in-out"
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-blue-600 bg-white border border-blue-600 rounded-md shadow-md hover:bg-blue-50 transition duration-300 ease-in-out"
               >
                 Learn More
               </Link>

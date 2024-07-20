@@ -161,22 +161,18 @@ function HeroSection() {
             and nurture talent, ensuring success across all levels.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a
+            <a
               href="#"
               className="inline-flex items-center justify-center px-8 py-3 rounded-md bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors text-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               Learn More
-            </motion.a>
-            <motion.a
+            </a>
+            <a
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-3 rounded-md bg-white text-blue-600 font-medium hover:bg-blue-50 transition-colors border border-blue-600 text-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               Contact Us
-            </motion.a>
+            </a>
           </div>
         </motion.div>
         <motion.div

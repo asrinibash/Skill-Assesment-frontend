@@ -106,9 +106,9 @@ function Footer() {
         </p>
         <p>
           <span>Centurion University</span>
-          <span className="ml-4 mr-4"> | </span> Disclaimer
-          <span className="ml-4 mr-4"> | </span> Terms of Use
-          <span className="ml-4 mr-4"> | </span> Privacy Policy
+          <span className="ml-1.5 mr-1.5">|</span> Disclaimer
+          <span className="ml-1.5 mr-1.5">|</span> Terms of Use
+          <span className="ml-1.5 mr-1.5">|</span> Privacy Policy
         </p>
       </div>
     </footer>

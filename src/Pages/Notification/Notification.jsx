@@ -23,7 +23,7 @@ const Notification = () => {
   return (
     <section>
       <motion.div
-        className="container mx-auto px-4 sm:px-6 lg:px-8 py-8"
+        className="container min-h-screen mx-auto px-4 sm:px-6 lg:px-8 py-8"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
