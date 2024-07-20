@@ -17,9 +17,9 @@ function AboutUsSection() {
   return (
     <section className="w-full py-16 bg-gradient-to-r from-blue-100 to-indigo-300 text-gray-900">
       <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+         initial={{ opacity: 0, y: 20 }}
+         animate={{ opacity: 1, y: 0 }}
+         transition={{ duration: 0.8 }}
         className="w-full py-16 bg-gradient-to-r from-blue-100 to-indigo-300 text-gray-900"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -4,6 +4,7 @@ import FeaturesSection from "../../Components/HomeComponents/FeaturesSection.jsx
 import KeyStakeholders from "../../Components/HomeComponents/KeyStakeholders.jsx";
 import LocationAndContact from "../../Components/HomeComponents/LocationAndContact.jsx";
 import NewsAndSchemes from "../../Components/HomeComponents/NewsAndSchemes.jsx";
+import { motion } from "framer-motion";
 
 function Home() {
   const slides = [
@@ -54,9 +55,12 @@ function Home() {
 
   return (
     <section className="bg-gray-50">
-      <div
+      <motion.div
         className="relative w-full mt-8 md:mt-0 h-[250px] md:h-[200px] lg:h-[450px]"
         data-carousel="slide"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
         <div className="relative overflow-hidden h-full">
           {slides.map((slide, index) => (
@@ -139,7 +143,7 @@ function Home() {
             <span className="sr-only">Next</span>
           </span>
         </button>
-      </div>
+      </motion.div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AboutUsSection />
         <FeaturesSection />
