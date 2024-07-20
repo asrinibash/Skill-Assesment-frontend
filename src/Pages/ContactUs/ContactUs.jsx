@@ -7,18 +7,24 @@ export default function ContactUs() {
   return (
     <div className="flex flex-col min-h-screen ">
       <ContactHeroSection />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-0.4 px-4 sm:px-6 lg:px-8 ">
         <LocationAndContact />
 
         <section
-          className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-blue-50 to-indigo-100"
+          className="w-full py-16 bg-gradient-to-br from-blue-50 to-indigo-100"
           id="contact-form"
         >
-          <div className="container px-4 md:px-6 mx-auto ">
-            <div className="max-w-2xl mx-auto">
+          <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
+            <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
-                Fill the form & Get in touch
+                Get in <span className="text-blue-600">Touch</span>
               </h2>
+              <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+                We'd love to hear from you. Fill out the form below and we'll
+                get back to you as soon as possible.
+              </p>
+            </div>
+            <div className="max-w-2xl mx-auto">
               <form className="space-y-6 bg-white p-8 rounded-lg shadow-lg">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
@@ -32,7 +38,7 @@ export default function ContactUs() {
                       id="name"
                       type="text"
                       placeholder="Enter your name"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-blue-300 focus:border-blue-300"
                     />
                   </div>
                   <div>
@@ -46,7 +52,7 @@ export default function ContactUs() {
                       id="email"
                       type="email"
                       placeholder="Enter your email"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-blue-300 focus:border-blue-300"
                     />
                   </div>
                 </div>
@@ -61,7 +67,7 @@ export default function ContactUs() {
                     id="subject"
                     type="text"
                     placeholder="Enter the subject"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-blue-300 focus:border-blue-300"
                   />
                 </div>
                 <div>
@@ -74,12 +80,12 @@ export default function ContactUs() {
                   <textarea
                     id="message"
                     placeholder="Enter your message"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-gray-300 focus:border-transparent min-h-[150px]"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-blue-300 focus:border-blue-300 min-h-[150px]"
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-3 px-4  bg-blue-600 text-white font-semibold rounded-md shadow-md hover:shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-1"
+                  className="w-full py-3 px-4 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-1"
                 >
                   Send Message
                 </button>
@@ -104,7 +110,7 @@ function ContactHeroSection() {
         <div className="grid gap-12 lg:grid-cols-2 items-center">
           <div className="space-y-6">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl mb-6">
-              Contact Us
+              Contact <span className="text-blue-600">Us</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-600">
               We're here to help! Get in touch with our team to learn more about
@@ -114,13 +120,13 @@ function ContactHeroSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <Link
-                to="#contact-form"
+                to="/contact/form"
                 className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-blue-600 rounded-md shadow-md hover:bg-blue-700 transition duration-300 ease-in-out"
               >
                 Get in Touch
               </Link>
               <Link
-                to="#"
+                to="/about"
                 className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-blue-600 bg-white border rounded-md shadow-md hover:bg-blue-50 transition duration-300 ease-in-out"
               >
                 Learn More

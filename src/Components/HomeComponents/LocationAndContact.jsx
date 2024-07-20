@@ -6,7 +6,7 @@ const LocationAndContact = () => {
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
-            Our Location
+            Our <span className="text-blue-600">Location</span>
           </h2>
           <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
             Our team is here to assist you. Feel free to reach out using the

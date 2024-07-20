@@ -29,7 +29,7 @@ const KeyStakeholders = () => {
     <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
-          Our Key <span className="text-gray-600">Stakeholders</span>
+          Our Key <span className="text-blue-600">Stakeholders</span>
         </h2>
         <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
           We're proud to collaborate with leading organizations in the education

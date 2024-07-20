@@ -7,7 +7,7 @@ function AboutUsSection() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="md:w-1/2">
             <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-6">
-              About <span className="text-gray-600">Us</span>
+              About <span className="text-blue-600">Us</span>
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed mb-8">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis

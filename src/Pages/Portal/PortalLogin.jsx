@@ -33,7 +33,7 @@ function PortalLogin() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl font-bold text-gray-900 text-center mb-8">
-            Login to Your <span className="text-blue-600">Dashboard</span>
+            Login to <span className="text-blue-600">Dashboard</span>
           </h2>
           <LoginForm />
         </motion.div>
@@ -43,7 +43,7 @@ function PortalLogin() {
       <section className="w-full py-16 bg-gradient-to-b from-blue-50 to-indigo-100">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
-            Download Your Certificate
+            Download Student <span className="text-blue-600">Certificate</span>
           </h2>
           <div className="bg-white p-8 rounded-lg shadow-lg">
             <p className="text-gray-600 mb-6 text-center">

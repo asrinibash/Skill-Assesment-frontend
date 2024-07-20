@@ -282,10 +282,11 @@ function CarouselSection({ title, description, items, CardComponent }) {
           className="py-8"
         >
           {items.map((item, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} className="p-2">
               <CardComponent {...item} />
             </SwiperSlide>
           ))}
+
           <div className="swiper-button-prev"></div>
           <div className="swiper-button-next"></div>
         </Swiper>
@@ -296,7 +297,7 @@ function CarouselSection({ title, description, items, CardComponent }) {
 
 function PartnerCard({ name, description }) {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 h-full flex flex-col justify-between transition duration-300 ease-in-out transform hover:scale-105">
+    <div className="bg-white rounded-lg hover:shadow-md p-6 h-full flex flex-col justify-between cursor-pointer transition duration-300 ease-in-out transform hover:scale-105">
       <div>
         <img
           src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dHJhaW5pbmd8ZW58MHx8MHx8fDA%3D"
@@ -314,7 +315,7 @@ function PartnerCard({ name, description }) {
 
 function TrainingCard({ name, description }) {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 h-full flex flex-col justify-between transition duration-300 ease-in-out transform hover:scale-105">
+    <div className="bg-white rounded-lg p-6 h-full flex flex-col justify-between cursor-pointer hover:shadow-md transition duration-300 ease-in-out transform hover:scale-105">
       <div>
         <img
           src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dHJhaW5pbmd8ZW58MHx8MHx8fDA%3D"
@@ -332,7 +333,7 @@ function TrainingCard({ name, description }) {
 
 function AgencyCard({ name, description }) {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 h-full flex flex-col justify-between transition duration-300 ease-in-out transform hover:scale-105">
+    <div className="bg-white rounded-lg hover:shadow-md p-6 h-full flex flex-col justify-between cursor-pointer transition duration-300 ease-in-out transform hover:scale-105">
       <div>
         <img
           src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGFnZW5jeXxlbnwwfDB8MHx8fDA%3D"

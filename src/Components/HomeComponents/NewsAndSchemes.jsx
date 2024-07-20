@@ -38,7 +38,7 @@ const NewsAndSchemes = () => {
     <section className="py-16 bg-gradient-to-br from-gray-50 to-indigo-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
-          News and <span className="text-gray-600">Schemes</span>
+          News and <span className="text-blue-600">Schemes</span>
         </h2>
         <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
           We're proud to collaborate with leading organizations in the education
@@ -62,8 +62,8 @@ const NewsAndSchemes = () => {
         >
           {newsItems.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className="px-2">
-                <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1">
+              <div className="px-2 p-2">
+                <div className="bg-white p-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer">
                   <img
                     src={item.image}
                     alt={`News ${index + 1}`}

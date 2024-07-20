@@ -5,7 +5,7 @@ export default function AboutUs() {
   return (
     <>
       <AboutUsSection />
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="flex-1 max-w-7xl mx-0.4 px-4 sm:px-6 lg:px-8">
         <ImageGallery />
         <OurTeam />
       </main>
@@ -17,9 +17,9 @@ function AboutUsSection() {
   return (
     <section className="w-full py-16 bg-gradient-to-r from-blue-100 to-indigo-300 text-gray-900">
       <motion.section
-         initial={{ opacity: 0, y: 20 }}
-         animate={{ opacity: 1, y: 0 }}
-         transition={{ duration: 0.8 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
         className="w-full py-16 bg-gradient-to-r from-blue-100 to-indigo-300 text-gray-900"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -238,36 +238,33 @@ function ImageGallery() {
   ];
 
   return (
-    <section className="w-full py-16 bg-blue-50">
+    <section className="w-full py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-8 text-center text-gray-800">
-          Our Highlighted Programs
+          Our <span className="text-blue-600">Highlighted Programs</span>
         </h2>
         <motion.div
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, staggerChildren: 0.1 }}
-          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          transition={{ duration: 0.5, staggerChildren: 0.05 }}
         >
           {programs.map((program, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="relative overflow-hidden rounded-lg shadow-md aspect-w-16 aspect-h-9"
+              className="relative overflow-hidden rounded-lg shadow-md cursor-pointer group"
             >
               <img
                 src={program.image}
                 alt={program.name}
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-60 transition-transform duration-300 ease-in-out group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                 <h3 className="text-white text-xl font-semibold text-center">
                   {program.name}
                 </h3>
               </div>
-            </motion.div>
+            </div>
           ))}
         </motion.div>
       </div>
@@ -355,16 +352,16 @@ function OurTeam() {
   ];
 
   return (
-    <section className="w-full py-16 bg-gradient-to-b from-blue-50 to-indigo-100">
+    <section className="w-full py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-8 text-center text-gray-800">
-          Our Team
+          Our <span className="text-blue-600">Team</span>
         </h2>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, staggerChildren: 0.05 }}
-          className="grid gap-8 md:grid-cols-3 lg:grid-cols-5"
+          className="grid grid-cols-3 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5"
         >
           {teamMembers.map((member, index) => (
             <motion.div
@@ -376,12 +373,12 @@ function OurTeam() {
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-32 h-32 rounded-full mb-4 object-cover"
+                className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full mb-2 sm:mb-3 md:mb-4 object-cover"
               />
-              <h3 className="text-lg font-semibold text-gray-800">
+              <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-800">
                 {member.name}
               </h3>
-              <p className="text-sm text-gray-600">{member.role}</p>
+              <p className="text-xs sm:text-sm text-gray-600">{member.role}</p>
             </motion.div>
           ))}
         </motion.div>

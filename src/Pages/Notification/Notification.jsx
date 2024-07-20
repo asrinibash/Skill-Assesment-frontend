@@ -29,7 +29,7 @@ const Notification = () => {
         transition={{ duration: 0.8 }}
       >
         <h1 className="text-2xl sm:text-3xl font-bold mb-6">
-          News and Notifications
+          News and <span className="text-blue-600">Notifications</span>
         </h1>
         <div className="bg-white shadow-md rounded-lg overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">

@@ -13,7 +13,7 @@ function FeaturesSection() {
           </span>
           <h2 className="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl">
             Trained students in{" "}
-            <span className="text-gray-600">different locations</span>
+            <span className="text-blue-600">different locations</span>
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-700 leading-relaxed">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
