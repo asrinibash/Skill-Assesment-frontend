@@ -19,13 +19,10 @@ const pageTransition = {
 function App() {
   const location = useLocation();
 
-  console.log("Rendering App.jsx");
-
   return (
     <>
       <Navbar />
       <AnimatePresence mode="wait">
-        {/* Ensure the motion.div key reflects the route */}
         <motion.div
           key={location.pathname}
           initial="initial"
