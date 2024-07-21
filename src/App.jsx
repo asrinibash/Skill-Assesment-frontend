@@ -3,6 +3,8 @@ import { Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import Footer from "./Components/Footer/Footer.jsx";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -39,6 +41,7 @@ function App() {
         </motion.div>
       </AnimatePresence>
       <Footer />
+      <ToastContainer/>
     </>
   );
 }

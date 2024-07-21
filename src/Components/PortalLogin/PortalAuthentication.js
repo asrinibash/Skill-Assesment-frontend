@@ -1,10 +1,24 @@
-import { useRecoilState } from 'recoil';
-import { portalAuthenticationState } from './atoms';
-import axios from 'axios';
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from "recoil";
+import { portalAuthenticationState } from "./atoms";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
-const API_URL = 'http://localhost:5173'; 
+const API_URL = "http://localhost:8000";
+
+// *Get LoginURL
+const getLoginUrl = (role) => {
+  switch (role) {
+    case "admin":
+      return `${API_URL}/api/v1/admin/login`;
+    case "trainingPartner":
+      return `${API_URL}/api/v1/tp/login`;
+    case "assessmentAgency":
+      return `${API_URL}/api/v1/aa/login`;
+    default:
+      return `${API_URL}/portal/login`;
+  }
+};
 
 export const usePortalAuthentication = () => {
   const [authState, setAuthState] = useRecoilState(portalAuthenticationState);
@@ -12,12 +26,14 @@ export const usePortalAuthentication = () => {
 
   const loginPortal = async (email, password, role) => {
     try {
+      const loginUrl = getLoginUrl(role);
+
       const response = await axios.post(
-        `${API_URL}/portal/login`,
-        { email, password, role },
+        loginUrl,
+        { email, password },
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           withCredentials: true,
         }
@@ -29,10 +45,10 @@ export const usePortalAuthentication = () => {
         role: role,
       });
 
-      // *Store token and role in localStorage
-      localStorage.setItem('portalAuthToken', response.data.data);
-      localStorage.setItem('portalUserRole', role);
+      localStorage.setItem("portalAuthToken", response.data.data);
+      localStorage.setItem("portalUserRole", role);
 
+      console.log("You have successfully logged in");
       toast.success("You have successfully logged in.", {
         position: "bottom-center",
         closeOnClick: true,
@@ -41,19 +57,19 @@ export const usePortalAuthentication = () => {
       });
 
       // *Navigate based on role
-      switch(role) {
-        case 'admin':
-          navigate('/admin/dashboard');
-          break;
-        case 'trainingPartner':
-          navigate('/trainingpartner/dashboard');
-          break;
-        case 'assessmentAgency':
-          navigate('/assessmentagency/dashboard');
-          break;
-        default:
-          navigate('/dashboard');
-      }
+      // switch (role) {
+      //   case "admin":
+      //     navigate("/admin/dashboard");
+      //     break;
+      //   case "trainingPartner":
+      //     navigate("/trainingpartner/dashboard");
+      //     break;
+      //   case "assessmentAgency":
+      //     navigate("/assessmentagency/dashboard");
+      //     break;
+      //   default:
+      //     navigate("/dashboard");
+      // }
     } catch (error) {
       setAuthState({
         isAuthenticated: false,
