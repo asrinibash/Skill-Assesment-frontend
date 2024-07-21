@@ -9,7 +9,6 @@ import {
   FaAngleRight,
 } from "react-icons/fa";
 
-
 function Footer() {
   const footerLinks = [
     { title: "Home", link: "/#" },
@@ -26,7 +25,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-[#001d3d] to-[#000814] text-white">
+    <footer className="bg-gradient-to-b from-[#001d3d] to-[#000814] text-white relative">
       <div className="container mx-auto px-4 py-12">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
@@ -73,7 +72,7 @@ function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-2  md:col-span-2">
+          <div className="grid grid-cols-3 gap-2 md:col-span-2">
             {["Important Links", "Links", "Location"].map(
               (sectionTitle, index) => (
                 <div key={index}>
@@ -100,16 +99,25 @@ function Footer() {
         </div>
       </div>
 
-      <div className="bg-[#00142a] py-4 text-center text-sm">
-        <p>
-          &copy; {new Date().getFullYear()} Assessment Management System (AMSAY)
-        </p>
-        <p>
-          <span>Centurion University</span>
-          <span className="ml-1.5 mr-1.5">|</span> Disclaimer
-          <span className="ml-1.5 mr-1.5">|</span> Terms of Use
-          <span className="ml-1.5 mr-1.5">|</span> Privacy Policy
-        </p>
+      <div className="text-gray-500 py-4">
+        <div className="container mx-auto px-4 flex flex-wrap justify-between items-center relative">
+          <p>© {new Date().getFullYear()} Assessment Management System (AMSAY)</p>
+          <div className="flex space-x-4 mt-2 md:mt-0">
+            <a href="#" className="hover:text-white">Centurion University</a>
+            <span>|</span>
+            <a href="#" className="hover:text-white">Disclaimer</a>
+            <span>|</span>
+            <a href="#" className="hover:text-white">Terms of Use</a>
+            <span>|</span>
+            <a href="#" className="hover:text-white">Privacy Policy</a>
+          </div>
+          <a
+            href="/admin"
+            className="absolute bottom-8 right-4 text-[#001d3d] py-2 px-4 rounded-lg font-bold transition duration-300 hover:bg-[#3f37c9] hover:text-white"
+          >
+            Admin
+          </a>
+        </div>
       </div>
     </footer>
   );

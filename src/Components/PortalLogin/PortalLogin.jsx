@@ -1,233 +1,151 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { usePortalAuthentication } from "./PortalAuthentication";
-import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-  const [role, setRole] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
-  const [errors, setErrors] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const [isRegistering, setIsRegistering] = useState(true);
   const [isRedirecting, setIsRedirecting] = useState(false);
+  const navigate = useNavigate();
 
-  const { loginPortal } = usePortalAuthentication();
-
-  useEffect(() => {
-    const savedRole = localStorage.getItem("savedRole");
-    const savedEmail = localStorage.getItem("savedEmail");
-    if (savedRole) setRole(savedRole);
-    if (savedEmail) setEmail(savedEmail);
-  }, []);
-
-  const validateForm = () => {
-    const newErrors = {};
-    if (!role) newErrors.role = "Role is required";
-    if (!email) newErrors.email = "Email is required";
-    if (!password) newErrors.password = "Password is required";
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      setIsLoading(true);
-      try {
-        await loginPortal(email, password, role);
-        toast.success("Login successful!");
-        // *Save credentials to localStorage
-        localStorage.setItem("savedRole", role);
-        localStorage.setItem("savedEmail", email);
-        // *Clear password field
-        setPassword("");
-      } catch (error) {
-        toast.error(error.message || "Login failed. Please try again.");
-        // *Clear all fields on unsuccessful login
-        setRole("");
-        setEmail("");
-        setPassword("");
-        // *Clear saved credentials from localStorage
-        localStorage.removeItem("savedRole");
-        localStorage.removeItem("savedEmail");
-      } finally {
-        setIsLoading(false);
-      }
-    }
-  };
-
-  const handleRegister = async () => {
+  const handleAction = async () => {
     if (!selectedOption) return;
 
     setIsRedirecting(true);
     try {
+      const redirectURL = getRedirectURL();
+      console.log(
+        `${isRegistering ? "Registering" : "Logging in"} as ${selectedOption}`
+      );
+
+      // Show "Redirecting..." for 1 second
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log(`Registering as ${selectedOption}`);
+
+      // Redirect to the appropriate URL
+      navigate(redirectURL);
     } catch (error) {
-      console.error("Registration failed", error);
-    } finally {
+      console.error(
+        `${isRegistering ? "Registration" : "Login"} failed`,
+        error
+      );
       setIsRedirecting(false);
     }
   };
 
-  return (
-    <div className="flex flex-col md:flex-row shadow-2xl rounded-xl overflow-hidden mx-auto max-w-6xl my-16">
-      {/* New Partner Section */}
-      <div className="relative w-full md:w-1/2 bg-indigo-500 p-10 flex flex-col justify-start items-start text-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center brightness-50"
-          style={{
-            backgroundImage:
-              'url("https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
-          }}
-        />
-        <div className="relative w-full z-10">
-          <h2 className="text-4xl font-bold mb-6">New to Our Platform?</h2>
-          <p className="mb-8 text-lg">Choose your registration type:</p>
+  const getRedirectURL = () => {
+    if (isRegistering) {
+      return selectedOption === "Training Partner"
+        ? "/register-training-partner"
+        : "/register-assessment-agency";
+    } else {
+      return selectedOption === "Training Partner"
+        ? "/login-training-partner"
+        : "/login-assessment-agency";
+    }
+  };
 
-          <div className="flex justify-evenly w-full mb-8">
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const optionVariants = {
+    hover: { scale: 1.05, transition: { duration: 0.2 } },
+    tap: { scale: 0.95 },
+  };
+
+  return (
+    <motion.div
+      className="flex flex-col lg:flex-row shadow-2xl rounded-3xl overflow-hidden mx-auto max-w-7xl my-16 bg-[#004b23]"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      {/* Left Section */}
+      <div className="w-full lg:w-1/2 p-12 flex flex-col justify-center items-center text-white">
+        <h2 className="text-5xl font-bold mb-8 text-center">
+          {isRegistering ? "Join Our Platform" : "Welcome Back"}
+        </h2>
+        <p className="mb-10 text-xl text-center">
+          {isRegistering
+            ? "Choose your registration type:"
+            : "Select your account type:"}
+        </p>
+
+        <div className="flex flex-col sm:flex-row justify-center w-full mb-10 space-y-4 sm:space-y-0 sm:space-x-4">
+          {["Training Partner", "Assessment Agency"].map((option) => (
             <motion.div
-              className={`flex-1 p-6 m-2 rounded-lg flex flex-col items-center justify-center transition-all cursor-pointer bg-white bg-opacity-50 ${
-                selectedOption === "trainingPartner"
-                  ? "bg-opacity-75 text-blue-600"
-                  : "hover:bg-opacity-75"
+              key={option}
+              className={`flex-1 p-6 rounded-xl flex flex-col items-center justify-center cursor-pointer backdrop-blur-md ${
+                selectedOption === option
+                  ? "bg-white bg-opacity-30 shadow-lg"
+                  : "bg-white bg-opacity-10 hover:bg-opacity-20"
               }`}
-              onClick={() => setSelectedOption("trainingPartner")}
+              onClick={() => setSelectedOption(option)}
+              variants={optionVariants}
+              whileHover="hover"
+              whileTap="tap"
             >
-              <svg
-                className="w-12 h-12 mb-3"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
+              <motion.div
+                className="w-16 h-16 mb-4 rounded-full bg-white flex items-center justify-center"
+                whileHover={{ rotate: 360, transition: { duration: 0.5 } }}
               >
-                <path
-                  fillRule="evenodd"
-                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span className="font-semibold text-lg">Training Partner</span>
-            </motion.div>
-            <motion.div
-              className={`flex-1 p-6 m-2 rounded-lg flex flex-col items-center justify-center transition-all cursor-pointer bg-white bg-opacity-50 ${
-                selectedOption === "assessmentAgency"
-                  ? "bg-opacity-75 text-blue-600"
-                  : "hover:bg-opacity-75"
-              }`}
-              onClick={() => setSelectedOption("assessmentAgency")}
-            >
-              <svg
-                className="w-12 h-12 mb-3"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                  clipRule="evenodd"
-                />
-              </svg>
+                <svg
+                  className="w-10 h-10 text-indigo-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </motion.div>
               <span className="font-semibold text-lg text-center">
-                Assessment Agency
+                {option}
               </span>
             </motion.div>
-          </div>
-          <button
-            className={`w-full py-3 px-6 bg-white text-blue-600 rounded-lg font-semibold text-lg transition duration-300 ${
-              !selectedOption || isLoading
-                ? "opacity-50 cursor-not-allowed"
-                : "hover:bg-blue-50"
-            }`}
-            disabled={!selectedOption || isRedirecting}
-            onClick={handleRegister}
-          >
-            {isRedirecting ? "Redirecting..." : "Register Now"}
-          </button>
+          ))}
         </div>
+        <motion.button
+          className={`w-full py-4 px-8 bg-white text-indigo-600 rounded-xl font-bold text-lg transition duration-300 ${
+            !selectedOption || isRedirecting
+              ? "opacity-50 cursor-not-allowed"
+              : "hover:bg-opacity-90"
+          }`}
+          disabled={!selectedOption || isRedirecting}
+          onClick={handleAction}
+        >
+          {isRedirecting
+            ? "Redirecting..."
+            : isRegistering
+            ? "Register Now"
+            : "Login Now"}
+        </motion.button>
       </div>
 
-      {/* Login Form */}
-      <div className="w-full md:w-1/2 p-10 bg-white">
-        <h2 className="text-4xl font-bold text-gray-800 mb-8">Welcome Back</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label
-              className="block text-gray-700 text-sm font-semibold mb-2"
-              htmlFor="role"
-            >
-              Select Your Role
-            </label>
-            <select
-              id="role"
-              className={`w-full p-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ${
-                errors.role ? "border-red-500" : "border-gray-300"
-              }`}
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-            >
-              <option value="">Select Role</option>
-              <option value="trainingPartner">Training Partner</option>
-              <option value="assessmentAgency">Assessment Agency</option>
-              <option value="admin">Admin</option>
-            </select>
-            {errors.role && (
-              <p className="text-red-500 text-sm mt-1">{errors.role}</p>
-            )}
-          </div>
-          <div>
-            <label
-              className="block text-gray-700 text-sm font-semibold mb-2"
-              htmlFor="email"
-            >
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              className={`w-full p-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ${
-                errors.email ? "border-red-500" : "border-gray-300"
-              }`}
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            {errors.email && (
-              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-            )}
-          </div>
-          <div>
-            <label
-              className="block text-gray-700 text-sm font-semibold mb-2"
-              htmlFor="password"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              className={`w-full p-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ${
-                errors.password ? "border-red-500" : "border-gray-300"
-              }`}
-              placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            {errors.password && (
-              <p className="text-red-500 text-sm mt-1">{errors.password}</p>
-            )}
-          </div>
-          <motion.button
-            type="submit"
-            className="w-full py-3 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition duration-300"
-            disabled={isLoading}
-          >
-            {isLoading ? "Signing In..." : "Sign In"}
-          </motion.button>
-        </form>
+      {/* Right Section */}
+      <div className="w-full lg:w-1/2 bg-white p-12 flex flex-col justify-center items-center">
+        <h3 className="text-3xl font-bold mb-6 text-indigo-600">
+          {isRegistering ? "Already a Member?" : "New to Our Platform?"}
+        </h3>
+        <p className="mb-8 text-lg text-gray-600 text-center">
+          {isRegistering
+            ? "Login to your account and start your journey with us."
+            : "Register now and unlock a world of opportunities!"}
+        </p>
+        <motion.button
+          className="py-3 px-8 bg-indigo-600 text-white rounded-xl font-semibold text-lg transition duration-300 hover:bg-indigo-700"
+          onClick={() => setIsRegistering(!isRegistering)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {isRegistering ? "Login Instead" : "Register Instead"}
+        </motion.button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

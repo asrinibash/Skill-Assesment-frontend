@@ -9,7 +9,7 @@ const Notification = () => {
     const fetchNotifications = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/notifications/all"
+          "http://localhost:8001/api/notifications/all"
         );
         setNotifications(response.data);
       } catch (error) {
