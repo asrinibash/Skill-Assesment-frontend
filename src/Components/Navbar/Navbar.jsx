@@ -34,7 +34,7 @@ function Navbar() {
                 <img
                   src={logo}
                   alt="logo"
-                  className="w-10 h-10 object-contain sm:w-16 sm:h-16 md:w-20 md:h-20"
+                  className="w-12 h-12 object-contain sm:w-18 sm:h-18 md:w-24 md:h-24"
                 />
               </a>
               <div className="text-left flex-1">

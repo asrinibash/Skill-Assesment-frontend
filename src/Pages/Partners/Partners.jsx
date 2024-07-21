@@ -115,21 +115,24 @@ export default function Component() {
         <HeroSection />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <CarouselSection
-            title="Our Trusted Stakeholders"
+            title="Our"
+            title2="Trusted Stakeholders"
             description="We collaborate with a network of leading organizations to deliver comprehensive assessment solutions."
             items={partners}
             CardComponent={PartnerCard}
             bgColor="bg-blue-50"
           />
           <CarouselSection
-            title="Our Training Partners"
+            title="Our"
+            title2="Training Partners"
             description="We partner with top training organizations to provide the best resources for employee development."
             items={trainingPartners}
             CardComponent={TrainingCard}
             bgColor="bg-green-50"
           />
           <CarouselSection
-            title="Assessment Agencies We Work With"
+            title="Our"
+            title2="Assessment Agencies"
             description="We collaborate with leading agencies to provide comprehensive and reliable assessment solutions."
             items={assessmentAgencies}
             CardComponent={AgencyCard}
@@ -248,13 +251,13 @@ function FeatureCard({ title, description, icon }) {
   );
 }
 
-function CarouselSection({ title, description, items, CardComponent }) {
+function CarouselSection({ title, title2, description, items, CardComponent }) {
   return (
     <section className="w-full py-16 bg-gradient-to-b from-blue-50 to-indigo-100">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
-            {title}
+            {title} <span className="text-blue-600">{title2}</span>
           </h2>
           <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
             {description}
