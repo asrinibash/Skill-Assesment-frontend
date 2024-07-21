@@ -10,8 +10,9 @@ const LoginForm = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [isRedirecting, setIsRedirecting] = useState(false);
 
-  const { loginPortal } = usePortalAuthentication(); // Custom hook for authentication
+  const { loginPortal } = usePortalAuthentication();
 
   const validateForm = () => {
     const newErrors = {};
@@ -29,12 +30,25 @@ const LoginForm = () => {
       try {
         await loginPortal(email, password, role);
         toast.success("Login successful!");
-        // Redirect or update UI based on successful login
       } catch (error) {
         toast.error(error.message || "Login failed. Please try again.");
       } finally {
         setIsLoading(false);
       }
+    }
+  };
+
+  const handleRegister = async () => {
+    if (!selectedOption) return;
+
+    setIsRedirecting(true);
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log(`Registering as ${selectedOption}`);
+    } catch (error) {
+      console.error("Registration failed", error);
+    } finally {
+      setIsRedirecting(false);
     }
   };
 
@@ -101,18 +115,17 @@ const LoginForm = () => {
               </span>
             </motion.div>
           </div>
-          <motion.button
+          <button
             className={`w-full py-3 px-6 bg-white text-blue-600 rounded-lg font-semibold text-lg transition duration-300 ${
-              !selectedOption
+              !selectedOption || isLoading
                 ? "opacity-50 cursor-not-allowed"
                 : "hover:bg-blue-50"
             }`}
-            disabled={!selectedOption}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
+            disabled={!selectedOption || isRedirecting}
+            onClick={handleRegister}
           >
-            Register Now
-          </motion.button>
+            {isRedirecting ? "Redirecting..." : "Register Now"}
+          </button>
         </div>
       </div>
 
@@ -189,8 +202,6 @@ const LoginForm = () => {
           <motion.button
             type="submit"
             className="w-full py-3 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition duration-300"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
             disabled={isLoading}
           >
             {isLoading ? "Signing In..." : "Sign In"}
