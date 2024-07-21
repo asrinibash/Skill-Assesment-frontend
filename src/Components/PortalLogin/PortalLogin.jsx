@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { usePortalAuthentication } from "./PortalAuthentication";
 import { toast } from "react-toastify";
@@ -13,6 +13,13 @@ const LoginForm = () => {
   const [isRedirecting, setIsRedirecting] = useState(false);
 
   const { loginPortal } = usePortalAuthentication();
+
+  useEffect(() => {
+    const savedRole = localStorage.getItem("savedRole");
+    const savedEmail = localStorage.getItem("savedEmail");
+    if (savedRole) setRole(savedRole);
+    if (savedEmail) setEmail(savedEmail);
+  }, []);
 
   const validateForm = () => {
     const newErrors = {};
@@ -30,8 +37,20 @@ const LoginForm = () => {
       try {
         await loginPortal(email, password, role);
         toast.success("Login successful!");
+        // *Save credentials to localStorage
+        localStorage.setItem("savedRole", role);
+        localStorage.setItem("savedEmail", email);
+        // *Clear password field
+        setPassword("");
       } catch (error) {
         toast.error(error.message || "Login failed. Please try again.");
+        // *Clear all fields on unsuccessful login
+        setRole("");
+        setEmail("");
+        setPassword("");
+        // *Clear saved credentials from localStorage
+        localStorage.removeItem("savedRole");
+        localStorage.removeItem("savedEmail");
       } finally {
         setIsLoading(false);
       }
