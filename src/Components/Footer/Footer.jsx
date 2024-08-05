@@ -100,20 +100,30 @@ function Footer() {
       </div>
 
       <div className="text-gray-500 py-4">
-        <div className="container mx-auto px-4 flex flex-wrap justify-between items-center relative">
-          <p>© {new Date().getFullYear()} Assessment Management System (AMSAY)</p>
-          <div className="flex space-x-4 mt-2 md:mt-0">
-            <a href="#" className="hover:text-white">Centurion University</a>
-            <span>|</span>
-            <a href="#" className="hover:text-white">Disclaimer</a>
-            <span>|</span>
-            <a href="#" className="hover:text-white">Terms of Use</a>
-            <span>|</span>
-            <a href="#" className="hover:text-white">Privacy Policy</a>
+        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center relative">
+          <p className="mb-4 md:mb-0">
+            © {new Date().getFullYear()} Assessment Management System (AMSAY)
+          </p>
+          <div className="flex flex-wrap justify-center space-x-2 md:space-x-4 mt-2 md:mt-0">
+            <a href="#" className="hover:text-white">
+              Centurion University
+            </a>
+            <span className="hidden md:inline">|</span>
+            <a href="#" className="hover:text-white">
+              Disclaimer
+            </a>
+            <span className="hidden md:inline">|</span>
+            <a href="#" className="hover:text-white">
+              Terms of Use
+            </a>
+            <span className="hidden md:inline">|</span>
+            <a href="#" className="hover:text-white">
+              Privacy Policy
+            </a>
           </div>
           <a
             href="/admin"
-            className="absolute bottom-8 right-4 text-[#001d3d] py-2 px-4 rounded-lg font-bold transition duration-300 hover:bg-[#3f37c9] hover:text-white"
+            className="absolute bottom-8 right-4 text-[#001d3d] py-2 px-4 rounded-lg font-bold transition duration-300 hover:bg-[#3f37c9] hover:text-white hidden xl:block"
           >
             Admin
           </a>
