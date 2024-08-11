@@ -1,5 +1,5 @@
 import React from "react";
-import LoginForm from "../Components/PortalLogin.jsx";
+import LoginForm from "../Components/LoginForm.jsx";
 import { motion } from "framer-motion";
 
 function PortalLogin() {
