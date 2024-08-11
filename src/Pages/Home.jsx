@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import AboutUsSection from "../Components/HomeComponents/AboutUsSection.jsx";
-import FeaturesSection from "../Components/HomeComponents/FeaturesSection.jsx";
-import KeyStakeholders from "../Components/HomeComponents/KeyStakeholders.jsx";
-import LocationAndContact from "../Components/HomeComponents/LocationAndContact.jsx";
-import NewsAndSchemes from "../Components/HomeComponents/NewsAndSchemes.jsx";
+import AboutUsSection from "../Components/AboutUsSection.jsx";
+import FeaturesSection from "../Components/FeaturesSection.jsx";
+import KeyStakeholders from "../Components/KeyStakeholders.jsx";
+import LocationAndContact from "../Components/LocationAndContact.jsx";
+import NewsAndSchemes from "../Components/NewsAndSchemes.jsx";
 import { motion } from "framer-motion";
 
 function Home() {

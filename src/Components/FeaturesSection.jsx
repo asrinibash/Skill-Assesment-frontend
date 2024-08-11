@@ -1,8 +1,8 @@
 import React from "react";
-import students from "../../assets/students.png"
-import govt from "../../assets/govt.png"
-import assesmentagencies from "../../assets/assesmentagencies.png"
-import traningpartner from "../../assets/traningpartner.png"
+import students from "../assets/students.png"
+import govt from "../assets/govt.png"
+import assesmentagencies from "../assets/assesmentagencies.png"
+import traningpartner from "../assets/traningpartner.png"
 function FeaturesSection() {
   return (
     <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100">

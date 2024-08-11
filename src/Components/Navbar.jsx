@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import logo from "../../assets/logo.png";
-import skillindialogo from "../../assets/skillindialogo.png";
-import NCVETlogo from "../../assets/NCVETlogo.jpeg";
+import logo from "../assets/logo.png";
+import skillindialogo from "../assets/skillindialogo.png";
+import NCVETlogo from "../assets/NCVETlogo.jpeg";
 import { FiAlignJustify, FiX } from "react-icons/fi";
 
 function Header({ isVisible }) {
