@@ -5,25 +5,6 @@ import { motion } from "framer-motion";
 function PortalLogin() {
   return (
     <div className="w-full">
-      {/* Hero Section */}
-      {/* <section className="w-full py-12 md:py-24 bg-gradient-to-r from-blue-100 to-indigo-300">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-        >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900">
-            Welcome to Our{" "}
-            <span className="text-blue-600">Assessment Portal</span>
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-600">
-            Access your account to manage trainings, conduct assessments, and
-            more. We're here to support your journey in skill development and
-            certification.
-          </p>
-        </motion.div>
-      </section> */}
 
       <section className="bg-gradient-to-b from-blue-50 to-indigo-100 py-16">
         <motion.div
