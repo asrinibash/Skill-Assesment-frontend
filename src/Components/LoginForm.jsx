@@ -53,15 +53,15 @@ const LoginForm = () => {
       variants={containerVariants}
     >
       {/* Left Section - Guidelines */}
-      <div className="w-full lg:w-1/2 p-12 flex flex-col justify-start items-start bg-indigo-50 text-gray-800">
-        <h2 className="text-4xl font-bold mb-8 text-start">Welcome to Our Platform</h2>
+      <div className="w-full lg:w-1/2 p-12 flex flex-col justify-start items-start bg-blue-800 text-white">
+        <h2 className="text-4xl font-bold mb-8 text-start">Necessary Guidelines</h2>
         <ul className="list-disc space-y-3 ml-6 text-lg">
-          <li>Choose your role from the options provided</li>
-          <li>Ensure you have the necessary credentials ready</li>
-          <li>Follow the prompts to complete your login or registration</li>
-          <li>For any issues, please contact our support team</li>
-          <li>For any issues, please contact our support team</li>
-          <li>For any issues, please contact our support team</li>
+          <li>guideline 1</li>
+          <li>guideline 2</li>
+          <li>guideline 3</li>
+          <li>guideline 4</li>
+          <li>guideline 5</li>
+          <li>guideline 6</li>
         </ul>
       </div>
 
